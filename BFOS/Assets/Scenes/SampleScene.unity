@@ -489,8 +489,22 @@ MonoBehaviour:
   isWallLeft: 0
   isWallRight: 0
   isActioning: 0
+  isStunned: 0
   velocity: {x: 0, y: 0, z: 0}
   rb: {fileID: 78592650}
+  bufferCount: 0
+  actionQ:
+    duration: 0
+    motor: {fileID: 0}
+  walk:
+    duration: 0
+    motor: {fileID: 78592655}
+  jump:
+    duration: 0
+    motor: {fileID: 78592655}
+  wallJump:
+    duration: 0
+    motor: {fileID: 78592655}
 --- !u!1 &232265220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,7 +1218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: -20}
-  smoothTime: 0.1
+  smoothTime: 0.15
   velocity: {x: 0, y: 0, z: 0}
   target: {fileID: 78592654}
 --- !u!114 &963194230
