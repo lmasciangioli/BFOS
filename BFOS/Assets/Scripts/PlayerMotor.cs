@@ -10,6 +10,7 @@ public class PlayerMotor : MonoBehaviour
     public bool isGrounded;
     public bool isWallLeft;
     public bool isWallRight;
+    public bool isActioning;
 
     public Vector3 velocity;
 
@@ -64,5 +65,27 @@ public class PlayerMotor : MonoBehaviour
     }
 
 
+
+
+    public class Action
+    {
+        public float duration;
+        public PlayerMotor motor;
+        protected virtual void Use()
+        {
+
+        }
+    }
+
+    public class Walk : Action
+    {
+        protected override void Use()
+        {
+            base.Use();
+            motor.rb.velocity = new Vector3(Input.GetAxis("Horizontal") * motor.speed, motor.rb.velocity.y, 0);
+
+        }
+
+    }
 
 }
