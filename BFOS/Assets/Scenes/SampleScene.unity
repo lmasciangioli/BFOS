@@ -494,17 +494,17 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   rb: {fileID: 78592650}
   bufferCount: 0
-  actionQ:
+  bufferedAction:
     duration: 0
     motor: {fileID: 0}
   walk:
     duration: 0
     motor: {fileID: 78592655}
   jump:
-    duration: 0
+    duration: 0.4
     motor: {fileID: 78592655}
   wallJump:
-    duration: 0
+    duration: 0.4
     motor: {fileID: 78592655}
 --- !u!1 &232265220
 GameObject:
@@ -605,7 +605,7 @@ Transform:
   m_GameObject: {fileID: 232265220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.1, y: 48.21, z: 15.5}
+  m_LocalPosition: {x: 67.95, y: 48.21, z: 15.5}
   m_LocalScale: {x: 50.204033, y: 0.5451557, z: 28.096544}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1547,7 +1547,7 @@ Transform:
   m_GameObject: {fileID: 1092982933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 42.6, y: 43.2, z: 15.5}
+  m_LocalPosition: {x: 42.6, y: 43.31, z: 15.5}
   m_LocalScale: {x: 10.311438, y: 1.1765004, z: 28.096544}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1897,7 +1897,7 @@ Transform:
   m_GameObject: {fileID: 1333242535}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.69, y: 40.42, z: 15.5}
+  m_LocalPosition: {x: 3.12, y: 40.19, z: 15.5}
   m_LocalScale: {x: 50.204033, y: 0.5451557, z: 28.096544}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1968,7 +1968,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.009727725, z: 1}
+  m_Size: {x: 0.9, y: 0.009727725, z: 0.9}
   m_Center: {x: 0, y: -0.0073368168, z: 0}
 --- !u!1 &1779627817
 GameObject:

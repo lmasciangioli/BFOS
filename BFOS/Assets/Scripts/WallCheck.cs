@@ -14,7 +14,7 @@ public class WallCheck : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Ground") || other.CompareTag("Wall"))
         {
             if(side == wallSide.Left)
             {
@@ -29,7 +29,7 @@ public class WallCheck : MonoBehaviour
     }
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Ground") || other.CompareTag("Wall"))
         {
             if (side == wallSide.Left)
             {

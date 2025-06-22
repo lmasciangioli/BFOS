@@ -18,7 +18,8 @@ public class PlayerMotor : MonoBehaviour
     public Rigidbody rb;
 
     public float bufferCount;
-    public Action actionQ;
+    public Action bufferedAction;
+
     public Walk walk;
     public Jump jump;
     public WallJump wallJump;
@@ -55,15 +56,8 @@ public class PlayerMotor : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            if (isGrounded)
-            {
-                jump.Use();
-            }
-            else if (isWallLeft || isWallRight)
-            {
-                wallJump.Use();
-            }
-
+            bufferedAction = jump;
+            bufferCount = jump.duration;
         }
     }
 
@@ -79,6 +73,22 @@ public class PlayerMotor : MonoBehaviour
             bufferCount = 0;
         }
         yield return new WaitForSecondsRealtime(0.01f);
+        if(bufferCount > 0)
+        {
+            if (bufferedAction != null)
+            {
+                if (bufferedAction.Use())
+                {
+                    bufferCount = 0;
+                    bufferedAction = null;
+                }
+                
+            }
+        }
+        else
+        {
+            bufferedAction = null;
+        }
         StartCoroutine(bufferCountdown());
     }
 
@@ -102,18 +112,18 @@ public class PlayerMotor : MonoBehaviour
     {
         public float duration;
         public PlayerMotor motor;
-        public virtual void Use()
+        public virtual bool Use()
         {
-
+            return true;
         }
     }
     [System.Serializable]
     public class Walk : Action
     {
-        public override void Use()
+        public override bool Use()
         {
-            base.Use();
             motor.rb.velocity = new Vector3(Input.GetAxis("Horizontal") * motor.speed, motor.rb.velocity.y, 0);
+            return true;
 
         }
 
@@ -122,11 +132,27 @@ public class PlayerMotor : MonoBehaviour
     [System.Serializable]
     public class Jump : Action
     {
-        public override void Use()
+        public override bool Use()
         {
-            base.Use();
-            motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
-            motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
+
+            if (motor.isGrounded)
+            {
+                motor.isActioning = true;
+                motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
+                motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
+                motor.isActioning = false;
+                return true;
+            }
+            else if (motor.isWallLeft || motor.isWallRight)
+            {
+                motor.wallJump.Use();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
     }
@@ -134,11 +160,13 @@ public class PlayerMotor : MonoBehaviour
     [System.Serializable]
     public class WallJump : Action
     {
-        public override void Use()
+        public override bool Use()
         {
-            base.Use();
+            motor.isActioning = true;
             motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
             motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
+            motor.isActioning = false;
+            return true;
         }
 
     }
