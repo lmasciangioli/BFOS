@@ -494,6 +494,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   rb: {fileID: 78592650}
   bufferCount: 0
+  bufferAmount: 0.3
   bufferedAction:
     duration: 0
     motor: {fileID: 0}
@@ -501,11 +502,15 @@ MonoBehaviour:
     duration: 0
     motor: {fileID: 78592655}
   jump:
-    duration: 0.4
+    duration: 0
     motor: {fileID: 78592655}
   wallJump:
-    duration: 0.4
+    duration: 0
     motor: {fileID: 78592655}
+  parry:
+    duration: 0
+    motor: {fileID: 78592655}
+  playerColor: {r: 1, g: 0.5882353, b: 0.8901961, a: 0}
 --- !u!1 &232265220
 GameObject:
   m_ObjectHideFlags: 0

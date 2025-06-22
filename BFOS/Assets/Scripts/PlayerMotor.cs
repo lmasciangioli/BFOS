@@ -12,17 +12,22 @@ public class PlayerMotor : MonoBehaviour
     public bool isWallRight;
     public bool isActioning;
     public bool isStunned;
+    public bool canParry;
 
     public Vector3 velocity;
 
     public Rigidbody rb;
 
     public float bufferCount;
+    public float bufferAmount;
     public Action bufferedAction;
 
     public Walk walk;
     public Jump jump;
     public WallJump wallJump;
+    public Parry parry;
+
+    public Color playerColor;
         
     void FixedUpdate()
     {
@@ -30,9 +35,29 @@ public class PlayerMotor : MonoBehaviour
         {
             if(isWallLeft == false)
             {
-                if(isStunned == false)
+                rb.useGravity = true;
+                if (isStunned == false)
                 {
                     walk.Use();
+                }
+            }
+            else
+            {
+                if (isGrounded == false)
+                {
+                    if(bufferedAction != jump)
+                    {
+                        rb.useGravity = false;
+                        rb.velocity = new Vector3(rb.velocity.x, -10, 0);
+                    }
+                    else
+                    {
+                        rb.useGravity = true;
+                    }
+                }
+                else
+                {
+                    rb.useGravity = true;
                 }
             }
         }
@@ -40,14 +65,36 @@ public class PlayerMotor : MonoBehaviour
         {
             if (isWallRight == false)
             {
-                if(isStunned == false)
+                rb.useGravity = true;
+                if (isStunned == false)
                 {
                     walk.Use();
                 }
             }
+            else
+            {
+                if (isGrounded == false)
+                {
+                    if (bufferedAction != jump)
+                    {
+                        rb.useGravity = false;
+                        rb.velocity = new Vector3(rb.velocity.x, -10, 0);
+                    }
+                    else
+                    {
+                        rb.useGravity = true;
+                    }
+                }
+                else
+                {
+                    rb.useGravity = true;
+                }
+            }
         }
-
-
+        else
+        {
+            rb.useGravity = true;
+        }
     }
 
 
@@ -57,7 +104,12 @@ public class PlayerMotor : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             bufferedAction = jump;
-            bufferCount = jump.duration;
+            bufferCount = bufferAmount;
+        }
+        else if (Input.GetKeyDown("left shift"))
+        {
+            bufferedAction = parry;
+            bufferCount = bufferAmount;
         }
     }
 
@@ -169,6 +221,64 @@ public class PlayerMotor : MonoBehaviour
             return true;
         }
 
+    }
+
+
+
+    [System.Serializable]
+    public class Parry : Action
+    {
+        public override bool Use()
+        {
+            if(motor.canParry == true)
+            {
+                if (motor.isActioning == false)
+                {
+                    if (motor.isGrounded == false)
+                    {
+
+                        motor.StartDash();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+    }
+
+    public void StartDash()
+    {
+        StartCoroutine(Dash());
+    }
+    IEnumerator Dash()
+    {
+        canParry = false;
+        isActioning = true;
+        isStunned = true;
+        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+        Vector3 dashDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
+        rb.velocity = new Vector3(0, 0, 0);
+        for (int i = 17; i > 0; i--)
+        {
+            rb.velocity = dashDirection * 40;
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+        rb.velocity = dashDirection * 5;
+        isActioning = false;
+        isStunned = false;
+        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", playerColor);
     }
 
 }

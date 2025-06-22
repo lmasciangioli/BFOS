@@ -18,6 +18,7 @@ public class GroundCheck : MonoBehaviour
         if (other.CompareTag("Ground") || other.CompareTag("Wall"))
         {
             playerMotor.isGrounded = false;
+            playerMotor.canParry = true;
         }
     }
 
@@ -26,6 +27,7 @@ public class GroundCheck : MonoBehaviour
         if (other.CompareTag("Ground") || other.CompareTag("Wall"))
         {
             playerMotor.isGrounded = true;
+            playerMotor.canParry = false;
         }
     }
 }
