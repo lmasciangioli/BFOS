@@ -21,6 +21,7 @@ public class PlayerMotor : MonoBehaviour
     public float bufferCount;
     public float bufferAmount;
     public Action bufferedAction;
+    public bool jumpTimed;
 
     public Walk walk;
     public Jump jump;
@@ -31,11 +32,11 @@ public class PlayerMotor : MonoBehaviour
         
     void FixedUpdate()
     {
+        rb.useGravity = true;
         if (Input.GetAxis("Horizontal") > 0)
         {
-            if(isWallLeft == false)
+            if (isWallLeft == false)
             {
-                rb.useGravity = true;
                 if (isStunned == false)
                 {
                     walk.Use();
@@ -45,19 +46,10 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    if(bufferedAction != jump)
+                    if (jumpTimed == false)
                     {
-                        rb.useGravity = false;
-                        rb.velocity = new Vector3(rb.velocity.x, -10, 0);
+                        Slide();
                     }
-                    else
-                    {
-                        rb.useGravity = true;
-                    }
-                }
-                else
-                {
-                    rb.useGravity = true;
                 }
             }
         }
@@ -65,7 +57,6 @@ public class PlayerMotor : MonoBehaviour
         {
             if (isWallRight == false)
             {
-                rb.useGravity = true;
                 if (isStunned == false)
                 {
                     walk.Use();
@@ -75,36 +66,33 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    if (bufferedAction != jump)
+                    if (jumpTimed == false)
                     {
-                        rb.useGravity = false;
-                        rb.velocity = new Vector3(rb.velocity.x, -10, 0);
+                        Slide();
                     }
-                    else
-                    {
-                        rb.useGravity = true;
-                    }
+                   
                 }
-                else
-                {
-                    rb.useGravity = true;
-                }
+               
             }
         }
-        else
-        {
-            rb.useGravity = true;
-        }
+        
     }
 
+    void Slide()
+    {
+        rb.useGravity = false;
+        rb.velocity = new Vector3(rb.velocity.x, -10, 0);
+        Debug.Log("slidin");
+    }
 
 
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("space") || Input.GetKeyDown("w"))
         {
             bufferedAction = jump;
             bufferCount = bufferAmount;
+            StartCoroutine(JumpBuffer());
         }
         else if (Input.GetKeyDown("left shift"))
         {
@@ -144,6 +132,17 @@ public class PlayerMotor : MonoBehaviour
         StartCoroutine(bufferCountdown());
     }
 
+
+    IEnumerator JumpBuffer()
+    {
+        jumpTimed = true;
+        for (int i = 43; i > 0 ;i--)
+        {
+            yield return new WaitForSecondsRealtime(0.01f);
+            jumpTimed = true;
+        }
+        jumpTimed = false;
+    }
     void Start()
     {
         StartCoroutine(bufferCountdown());
