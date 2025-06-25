@@ -29,12 +29,20 @@ public class PlayerMotor : MonoBehaviour
     public Parry parry;
 
     public Color playerColor;
-        
+
+    public enum Direction
+    {
+        Left,
+        Right
+    }
+    public Direction facing;
+
     void FixedUpdate()
     {
         rb.useGravity = true;
         if (Input.GetAxis("Horizontal") > 0)
         {
+            facing = Direction.Right;
             if (isWallLeft == false)
             {
                 if (isStunned == false)
@@ -55,6 +63,7 @@ public class PlayerMotor : MonoBehaviour
         }
         else if (Input.GetAxis("Horizontal") < 0)
         {
+            facing = Direction.Left;
             if (isWallRight == false)
             {
                 if (isStunned == false)
@@ -267,7 +276,17 @@ public class PlayerMotor : MonoBehaviour
         isActioning = true;
         isStunned = true;
         gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
-        Vector3 dashDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
+        float vert = Input.GetAxisRaw("Vertical");
+        float horiz;
+        if (facing == Direction.Left)
+        {
+            horiz = -1;
+        }
+        else
+        {
+            horiz = 1;
+        }
+        Vector3 dashDirection = new Vector3(horiz, vert / 6, 0).normalized;
         rb.velocity = new Vector3(0, 0, 0);
         for (int i = 17; i > 0; i--)
         {
