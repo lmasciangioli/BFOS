@@ -195,7 +195,7 @@ public class PlayerMotor : MonoBehaviour
         public override bool Use()
         {
 
-            if (motor.isGrounded)
+            if (motor.isGrounded && motor.isActioning == false)
             {
                 motor.isActioning = true;
                 motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
@@ -203,7 +203,7 @@ public class PlayerMotor : MonoBehaviour
                 motor.isActioning = false;
                 return true;
             }
-            else if (motor.isWallLeft || motor.isWallRight)
+            else if ((motor.isWallLeft || motor.isWallRight) && motor.isActioning == false)
             {
                 motor.wallJump.Use();
                 return true;
