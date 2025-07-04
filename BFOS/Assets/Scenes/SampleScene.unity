@@ -424,7 +424,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
-  - {fileID: 2100000, guid: f8bfa0cd4bfe03442a8fc3782bed568f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -995,6 +994,10 @@ PrefabInstance:
     - target: {fileID: 7229552067324692327, guid: 8e617dfb38aa7bf4eb84c1039091630d, type: 3}
       propertyPath: m_Name
       value: Barrel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850310508637843265, guid: 8e617dfb38aa7bf4eb84c1039091630d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2503,7 +2506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a9340bcd603d18540a6f2bfcb8660495, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a9340bcd603d18540a6f2bfcb8660495, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3958,6 +3961,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spear
       objectReference: {fileID: 0}
+    - target: {fileID: 7490898620924424635, guid: 527a747dcf4baf24cb90cc917ecc5361, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7835933738354191105, guid: 527a747dcf4baf24cb90cc917ecc5361, type: 3}
       propertyPath: m_LocalScale.x
       value: 55.804996
@@ -4009,6 +4016,10 @@ PrefabInstance:
     - target: {fileID: 7835933738354191105, guid: 527a747dcf4baf24cb90cc917ecc5361, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004376719305887854, guid: 527a747dcf4baf24cb90cc917ecc5361, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4080,6 +4091,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7553154667790358812, guid: f88a6df9c1f1deb40ae9f0325483fd4a, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8345959931951053001, guid: f88a6df9c1f1deb40ae9f0325483fd4a, type: 3}
       propertyPath: m_Name
       value: Moon darts
@@ -4181,6 +4196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel
       objectReference: {fileID: 0}
+    - target: {fileID: 7850310508637843265, guid: 8e617dfb38aa7bf4eb84c1039091630d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7850310508637843265, guid: 8e617dfb38aa7bf4eb84c1039091630d, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1ba17cc8234eed4192d53051f96fe43, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4197,6 +4220,10 @@ PrefabInstance:
     - target: {fileID: 210228903446988538, guid: 942658d2f9fac494f8cd97a5cf1f2c7b, type: 3}
       propertyPath: m_Name
       value: torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 210228903446988538, guid: 942658d2f9fac494f8cd97a5cf1f2c7b, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 693891611327339584, guid: 942658d2f9fac494f8cd97a5cf1f2c7b, type: 3}
       propertyPath: m_LocalScale.x
@@ -4250,6 +4277,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1867338405274576687, guid: 942658d2f9fac494f8cd97a5cf1f2c7b, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4263,9 +4294,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3350187440751315648, guid: e79b69f239cec1b40bad4854a9a84b35, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3350187440751315648, guid: e79b69f239cec1b40bad4854a9a84b35, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1ba17cc8234eed4192d53051f96fe43, type: 2}
     - target: {fileID: 3854727006463372053, guid: e79b69f239cec1b40bad4854a9a84b35, type: 3}
       propertyPath: m_Name
       value: broken sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 3854727006463372053, guid: e79b69f239cec1b40bad4854a9a84b35, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4482609291603931567, guid: e79b69f239cec1b40bad4854a9a84b35, type: 3}
       propertyPath: m_LocalScale.x
@@ -4332,6 +4375,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 641002409454885663, guid: c2790299d46694b4fadb73a29b76f6a6, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1433745826606611146, guid: c2790299d46694b4fadb73a29b76f6a6, type: 3}
       propertyPath: m_Name
       value: Clapped trap LP
