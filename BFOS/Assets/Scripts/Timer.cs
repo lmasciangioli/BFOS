@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     public Color red;
     public Color grey;
 
+    public PlayerMotor player;
     void Start()
     {
         

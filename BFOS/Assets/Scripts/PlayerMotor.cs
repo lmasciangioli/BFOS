@@ -27,8 +27,11 @@ public class PlayerMotor : MonoBehaviour
     public Jump jump;
     public WallJump wallJump;
     public Parry parry;
+    public BFOS bfos;
 
     public Color playerColor;
+
+    public Timer timer;
 
     public enum Direction
     {
@@ -106,6 +109,11 @@ public class PlayerMotor : MonoBehaviour
         else if (Input.GetKeyDown("left shift"))
         {
             bufferedAction = parry;
+            bufferCount = bufferAmount;
+        }
+        else if(Input.GetAxis("Fire1") > 0)
+        {
+            bufferedAction = bfos;
             bufferCount = bufferAmount;
         }
     }
@@ -299,4 +307,28 @@ public class PlayerMotor : MonoBehaviour
         gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", playerColor);
     }
 
+
+    [System.Serializable]
+    public class BFOS : Action
+    {
+        public override bool Use()
+        {
+            if(motor.isStunned == false && motor.isActioning == false && motor.timer.count == 0)
+            {
+                Debug.Log("Shawing");
+                foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    Destroy(enemy);
+                }
+                motor.timer.count = 60;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+    }
 }
