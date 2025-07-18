@@ -6,6 +6,7 @@ public class PlayerMotor : MonoBehaviour
 {
     public float speed;
     public float jumpHeight;
+    public float wallJumpforce;
     public float fallSpeed;
     public bool isGrounded;
     public bool isWallLeft;
@@ -13,6 +14,7 @@ public class PlayerMotor : MonoBehaviour
     public bool isActioning;
     public bool isStunned;
     public bool canParry;
+    public bool canJump;
     public bool parrying;
 
     public Vector3 velocity;
@@ -204,12 +206,13 @@ public class PlayerMotor : MonoBehaviour
         public override bool Use()
         {
 
-            if (motor.isGrounded && motor.isActioning == false)
+            if (motor.isGrounded && motor.isActioning == false || motor.canJump)
             {
                 motor.isActioning = true;
                 motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
                 motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
                 motor.isActioning = false;
+                motor.canJump = false;
                 return true;
             }
             else if ((motor.isWallLeft || motor.isWallRight) && motor.isActioning == false)
@@ -231,10 +234,21 @@ public class PlayerMotor : MonoBehaviour
     {
         public override bool Use()
         {
+            float jumpOffset;
+            if (motor.isWallLeft)
+            {
+                jumpOffset = -motor.wallJumpforce;
+            }
+            else
+            {
+                jumpOffset = motor.wallJumpforce;
+            }
             motor.isActioning = true;
             motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
             motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
+            //motor.rb.AddForce(new Vector3(jumpOffset,0,0), ForceMode.Force);
             motor.isActioning = false;
+            motor.canJump = false;
             return true;
         }
 

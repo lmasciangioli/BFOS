@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        Homing(true);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -24,9 +23,21 @@ public class Projectile : MonoBehaviour
     {
         if (homing == true)
         {
-            transform.LookAt(player.transform.position);
+            transform.LookAt(player.transform.position + new Vector3(0,1,0));
+            transform.position += transform.forward * Time.deltaTime * speed;
         }
-        transform.position += transform.forward * Time.deltaTime * speed;
+        else
+        {
+            if (facing == PlayerMotor.Direction.Left)
+            {
+                transform.position -= transform.forward * Time.deltaTime * speed;
+            }
+            else
+            {
+                transform.position += transform.forward * Time.deltaTime * speed;
+            }
+        }
+        
 
     }
 
@@ -40,21 +51,22 @@ public class Projectile : MonoBehaviour
         else
         {
 
-            
         }
     }
 
-    void Homing(bool home)
+    public void Homing(bool home)
     {
-        homing = home;
-        if (homing)
+        if (home == true)
         {
+            homing = true;
             speed = 15;
         }
         else
         {
+            homing = false;
             speed = 25;
         }
+        
     }
 
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6634159612132115137}
   - component: {fileID: 7733601982027763880}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Goomba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

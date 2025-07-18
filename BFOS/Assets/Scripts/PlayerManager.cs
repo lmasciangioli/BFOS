@@ -35,6 +35,8 @@ public class PlayerManager : MonoBehaviour
             if (playerMotor.parrying)
             {
                 Destroy(collision.gameObject);
+                playerMotor.canJump = true;
+                playerMotor.canParry = true;
             }
             else
             {
