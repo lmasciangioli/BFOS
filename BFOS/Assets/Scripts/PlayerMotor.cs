@@ -13,6 +13,7 @@ public class PlayerMotor : MonoBehaviour
     public bool isActioning;
     public bool isStunned;
     public bool canParry;
+    public bool parrying;
 
     public Vector3 velocity;
 
@@ -283,6 +284,7 @@ public class PlayerMotor : MonoBehaviour
         canParry = false;
         isActioning = true;
         isStunned = true;
+        parrying = true;
         gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
         float vert = Input.GetAxisRaw("Vertical");
         float horiz;
@@ -304,6 +306,7 @@ public class PlayerMotor : MonoBehaviour
         rb.velocity = dashDirection * 5;
         isActioning = false;
         isStunned = false;
+        parrying = false;
         gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", playerColor);
     }
 

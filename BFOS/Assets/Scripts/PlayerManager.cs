@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public LevelManager levels;
+    public PlayerMotor playerMotor;
     void Start()
     {
         
@@ -19,11 +20,26 @@ public class PlayerManager : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        void ResetScene()
         {
             Debug.Log("BONG");
             levels.sceneName = "SampleScene";
             levels.changeScene();
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            ResetScene();
+        }
+        else if(collision.gameObject.tag == "Projectile")
+        {
+            if (playerMotor.parrying)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                ResetScene();
+            }
         }
     }
 

@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
+        Homing(true);
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -24,27 +25,36 @@ public class Projectile : MonoBehaviour
         if (homing == true)
         {
             transform.LookAt(player.transform.position);
-            transform.position += transform.forward * Time.deltaTime * speed;
-
-            //rb.Move(player.transform.position, player.transform.rotation);
         }
-        
+        transform.position += transform.forward * Time.deltaTime * speed;
+
     }
 
 
-
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if(other.CompareTag("player"))
-        {
-            GameObject reset = GameObject.FindGameObjectWithTag("lMan");
-            LevelManager lMan = reset.GetComponent<LevelManager>();
-            lMan.changeScene();
-        }
-        else
+        if (collision.gameObject.CompareTag("Player") == false)
         {
             Destroy(gameObject);
         }
-        
+        else
+        {
+
+            
+        }
     }
+
+    void Homing(bool home)
+    {
+        homing = home;
+        if (homing)
+        {
+            speed = 15;
+        }
+        else
+        {
+            speed = 25;
+        }
+    }
+
 }
