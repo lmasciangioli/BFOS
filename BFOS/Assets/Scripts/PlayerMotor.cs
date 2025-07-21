@@ -312,10 +312,10 @@ public class PlayerMotor : MonoBehaviour
         }
         Vector3 dashDirection = new Vector3(horiz, vert / 6, 0).normalized;
         rb.velocity = new Vector3(0, 0, 0);
-        for (int i = 17; i > 0; i--)
+        for (int i = 10; i > 0; i--)
         {
             rb.velocity = dashDirection * 40;
-            yield return new WaitForSecondsRealtime(0.01f);
+            yield return new WaitForFixedUpdate();
         }
         rb.velocity = dashDirection * 5;
         isActioning = false;
