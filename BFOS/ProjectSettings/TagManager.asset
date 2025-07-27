@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - lMan
   - Projectile
+  - Trap
   layers:
   - Default
   - TransparentFX

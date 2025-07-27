@@ -20,12 +20,7 @@ public class PlayerManager : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        void ResetScene()
-        {
-            Debug.Log("BONG");
-            levels.sceneName = "SampleScene";
-            levels.changeScene();
-        }
+        
         if (collision.gameObject.tag == "Enemy")
         {
             ResetScene();
@@ -45,4 +40,23 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+
+    public void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "Trap")
+        {
+            if (collision.gameObject.GetComponent<Trap>().live == true)
+            {
+                ResetScene();
+            }
+        }
+    }
+
+
+    public void ResetScene()
+    {
+        Debug.Log("BONG");
+        levels.sceneName = "SampleScene";
+        levels.changeScene();
+    }
 }
