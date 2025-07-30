@@ -25,6 +25,8 @@ public class PlayerMotor : MonoBehaviour
     public float bufferAmount;
     public Action bufferedAction;
     public bool jumpTimed;
+    public bool wallJumping;
+    public Direction wallJumpDirection;
 
     public Walk walk;
     public Jump jump;
@@ -51,7 +53,7 @@ public class PlayerMotor : MonoBehaviour
             facing = Direction.Right;
             if (isWallLeft == false)
             {
-                if (isStunned == false)
+                if (isStunned == false && wallJumping == false)
                 {
                     walk.Use();
                 }
@@ -60,7 +62,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    if (jumpTimed == false)
+                    if (jumpTimed == false && wallJumping == false)
                     {
                         Slide();
                     }
@@ -72,7 +74,7 @@ public class PlayerMotor : MonoBehaviour
             facing = Direction.Left;
             if (isWallRight == false)
             {
-                if (isStunned == false)
+                if (isStunned == false && wallJumping == false)
                 {
                     walk.Use();
                 }
@@ -81,7 +83,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    if (jumpTimed == false)
+                    if (jumpTimed == false && wallJumping == false)
                     {
                         Slide();
                     }
@@ -193,7 +195,23 @@ public class PlayerMotor : MonoBehaviour
     {
         public override bool Use()
         {
-            motor.rb.velocity = new Vector3(Input.GetAxis("Horizontal") * motor.speed, motor.rb.velocity.y, 0);
+            if (motor.wallJumping)
+            {
+                if (motor.wallJumpDirection == Direction.Left)
+                {
+                    motor.rb.velocity = new Vector3(-motor.speed, motor.rb.velocity.y, 0);
+                }
+                else
+                {
+                    motor.rb.velocity = new Vector3(motor.speed, motor.rb.velocity.y, 0);
+                }
+            }
+            else
+            {
+                motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
+            }
+
+            
             return true;
 
         }
@@ -234,24 +252,44 @@ public class PlayerMotor : MonoBehaviour
     {
         public override bool Use()
         {
-            float jumpOffset;
             if (motor.isWallLeft)
             {
-                jumpOffset = -motor.wallJumpforce;
+                motor.wallJumpDirection = Direction.Left;
             }
             else
             {
-                jumpOffset = motor.wallJumpforce;
+                motor.wallJumpDirection = Direction.Right;
             }
             motor.isActioning = true;
             motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
             motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
+            motor.runWJOffeset();
             //motor.rb.AddForce(new Vector3(jumpOffset,0,0), ForceMode.Force);
             motor.isActioning = false;
             motor.canJump = false;
             return true;
         }
 
+    }
+
+
+    public void runWJOffeset()
+    {
+        StopCoroutine(WalljumpOffset());
+        StartCoroutine(WalljumpOffset());
+    }
+
+
+    IEnumerator WalljumpOffset()
+    {
+        wallJumping = true;
+
+        for (int i = 18; i > 0; --i)
+        {
+            walk.Use();
+            yield return new WaitForFixedUpdate();
+        }
+        wallJumping = false;
     }
 
 
@@ -299,6 +337,7 @@ public class PlayerMotor : MonoBehaviour
         isActioning = true;
         isStunned = true;
         parrying = true;
+        wallJumping = false;
         gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
         float vert = Input.GetAxisRaw("Vertical");
         float horiz;

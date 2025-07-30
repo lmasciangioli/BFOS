@@ -31,4 +31,16 @@ public class Goomba : MonoBehaviour
             waypointIndex = 0;
         }
     }
+
+
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            GameObject.FindObjectOfType<PlayerManager>().ResetScene();
+        }
+    }
+
+
+
 }

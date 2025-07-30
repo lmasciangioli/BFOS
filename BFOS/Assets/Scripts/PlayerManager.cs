@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
         
         if (collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("Ting");
             ResetScene();
         }
         else if(collision.gameObject.tag == "Projectile")
