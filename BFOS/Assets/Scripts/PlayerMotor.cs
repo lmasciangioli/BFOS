@@ -199,11 +199,11 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (motor.wallJumpDirection == Direction.Left)
                 {
-                    motor.rb.velocity = new Vector3(-motor.speed, motor.rb.velocity.y, 0);
+                    motor.rb.velocity = new Vector3(-motor.speed / 10, motor.rb.velocity.y, 0);
                 }
                 else
                 {
-                    motor.rb.velocity = new Vector3(motor.speed, motor.rb.velocity.y, 0);
+                    motor.rb.velocity = new Vector3(motor.speed / 10, motor.rb.velocity.y, 0);
                 }
             }
             else
@@ -284,7 +284,7 @@ public class PlayerMotor : MonoBehaviour
     {
         wallJumping = true;
 
-        for (int i = 18; i > 0; --i)
+        for (int i = 4; i > 0; --i)
         {
             walk.Use();
             yield return new WaitForFixedUpdate();
