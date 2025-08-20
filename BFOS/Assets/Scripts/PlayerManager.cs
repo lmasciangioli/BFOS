@@ -6,9 +6,10 @@ public class PlayerManager : MonoBehaviour
 {
     public LevelManager levels;
     public PlayerMotor playerMotor;
+    public Meter meter;
     void Start()
     {
-        
+        meter = FindAnyObjectByType<Meter>();
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour
                 Destroy(collision.gameObject);
                 playerMotor.canJump = true;
                 playerMotor.canParry = true;
+                meter.ChangeMeter(meter.parry);
             }
             else
             {

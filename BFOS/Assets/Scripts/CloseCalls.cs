@@ -7,12 +7,12 @@ public class CloseCalls : MonoBehaviour
 
     public List<Collider> log = new List<Collider>();
     public float logDuration;
-
+    public Meter meter;
 
 
     void Start()
     {
-        
+        meter = FindAnyObjectByType<Meter>();
     }
 
     void Update()
@@ -51,7 +51,7 @@ public class CloseCalls : MonoBehaviour
         {
             //NEAR MISS CODE HERE
             Debug.Log("Miss!");
-
+            meter.ChangeMeter(meter.nearMiss);
 
 
 

@@ -36,14 +36,18 @@ public class PlayerMotor : MonoBehaviour
 
     public Color playerColor;
 
-    public Timer timer;
-
     public enum Direction
     {
         Left,
         Right
     }
     public Direction facing;
+
+    public Meter meter;
+
+
+
+    
 
     void FixedUpdate()
     {
@@ -167,13 +171,10 @@ public class PlayerMotor : MonoBehaviour
     }
     void Start()
     {
+        meter = FindAnyObjectByType<Meter>();
         StartCoroutine(bufferCountdown());
+
     }
-
-
-
-
-
 
 
 
@@ -369,14 +370,14 @@ public class PlayerMotor : MonoBehaviour
     {
         public override bool Use()
         {
-            if(motor.isStunned == false && motor.isActioning == false && motor.timer.count == 0)
+            if(motor.isStunned == false && motor.isActioning == false && motor.meter.meterPercent == 100)
             {
                 Debug.Log("Shawing");
                 foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
                 {
                     Destroy(enemy);
                 }
-                motor.timer.count = 60;
+                
                 return true;
             }
             else
