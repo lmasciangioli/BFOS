@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();
+        levels = FindAnyObjectByType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -59,7 +60,7 @@ public class PlayerManager : MonoBehaviour
     public void ResetScene()
     {
         Debug.Log("BONG");
-        levels.sceneName = "SampleScene";
+        levels.sceneName = "goblin village 1";
         levels.changeScene();
     }
 }

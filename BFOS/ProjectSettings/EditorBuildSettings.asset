@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/goblin village 1.unity
+    guid: 98ac96cf19197a3438779a7e7ab1dc36
   m_configObjects: {}

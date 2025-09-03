@@ -20,6 +20,7 @@ public class PlayerMotor : MonoBehaviour
     public Vector3 velocity;
 
     public Rigidbody rb;
+    public Collider collider;
 
     public float bufferCount;
     public float bufferAmount;
@@ -35,6 +36,7 @@ public class PlayerMotor : MonoBehaviour
     public BFOS bfos;
 
     public Color playerColor;
+    public Material playerMat;
 
     public enum Direction
     {
@@ -44,6 +46,7 @@ public class PlayerMotor : MonoBehaviour
     public Direction facing;
 
     public Meter meter;
+    public BFOSAnimator bfosAnim;
 
 
 
@@ -172,6 +175,7 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();
+        bfosAnim = FindAnyObjectByType<BFOSAnimator>();
         StartCoroutine(bufferCountdown());
 
     }
@@ -339,7 +343,7 @@ public class PlayerMotor : MonoBehaviour
         isStunned = true;
         parrying = true;
         wallJumping = false;
-        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
+        playerMat.SetColor("_BaseColor", Color.red);
         float vert = Input.GetAxisRaw("Vertical");
         float horiz;
         if (facing == Direction.Left)
@@ -361,7 +365,7 @@ public class PlayerMotor : MonoBehaviour
         isActioning = false;
         isStunned = false;
         parrying = false;
-        gameObject.GetComponent<Renderer>().material.SetColor("_BaseColor", playerColor);
+        playerMat.SetColor("_BaseColor", playerColor);
     }
 
 
@@ -373,6 +377,11 @@ public class PlayerMotor : MonoBehaviour
             if(motor.isStunned == false && motor.isActioning == false && motor.meter.meterPercent == 100)
             {
                 Debug.Log("Shawing");
+                motor.bfosAnim.Play();
+                motor.collider.gameObject.SetActive(false);
+
+
+
                 foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
                 {
                     Destroy(enemy);
