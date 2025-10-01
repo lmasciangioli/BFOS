@@ -60,7 +60,7 @@ public class PlayerManager : MonoBehaviour
     public void ResetScene()
     {
         Debug.Log("BONG");
-        levels.sceneName = "goblin village 1";
+        levels.sceneName = "SampleScene";
         levels.changeScene();
     }
 }

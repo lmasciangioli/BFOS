@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
+    #region Variables
+    [Header("Tunables")]
     public float speed;
     public float jumpHeight;
     public float wallJumpforce;
     public float fallSpeed;
+
+    [Header("States")]
     public bool isGrounded;
     public bool isWallLeft;
     public bool isWallRight;
@@ -49,8 +53,8 @@ public class PlayerMotor : MonoBehaviour
     public BFOSAnimator bfosAnim;
 
 
+    #endregion
 
-    
 
     void FixedUpdate()
     {
@@ -69,7 +73,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    if (jumpTimed == false && wallJumping == false)
+                    if (isStunned == false && jumpTimed == false && wallJumping == false)
                     {
                         Slide();
                     }
@@ -90,7 +94,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (isGrounded == false)
                 {
-                    if (jumpTimed == false && wallJumping == false)
+                    if (isStunned == false && jumpTimed == false && wallJumping == false)
                     {
                         Slide();
                     }
@@ -106,9 +110,10 @@ public class PlayerMotor : MonoBehaviour
     {
         rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, -10, 0);
-        Debug.Log("slidin");
+        //Debug.Log("slidin");
     }
 
+    public KeyCode jumpy;
 
     void Update()
     {
@@ -151,7 +156,6 @@ public class PlayerMotor : MonoBehaviour
                     bufferCount = 0;
                     bufferedAction = null;
                 }
-                
             }
         }
         else
@@ -177,7 +181,7 @@ public class PlayerMotor : MonoBehaviour
         meter = FindAnyObjectByType<Meter>();
         bfosAnim = FindAnyObjectByType<BFOSAnimator>();
         StartCoroutine(bufferCountdown());
-
+        playerMat.SetColor("_BaseColor", playerColor);
     }
 
 
@@ -204,11 +208,11 @@ public class PlayerMotor : MonoBehaviour
             {
                 if (motor.wallJumpDirection == Direction.Left)
                 {
-                    motor.rb.velocity = new Vector3(-motor.speed / 10, motor.rb.velocity.y, 0);
+                    motor.rb.velocity = new Vector3(-motor.speed / 8, motor.rb.velocity.y, 0);
                 }
                 else
                 {
-                    motor.rb.velocity = new Vector3(motor.speed / 10, motor.rb.velocity.y, 0);
+                    motor.rb.velocity = new Vector3(motor.speed / 8, motor.rb.velocity.y, 0);
                 }
             }
             else
@@ -288,13 +292,19 @@ public class PlayerMotor : MonoBehaviour
     IEnumerator WalljumpOffset()
     {
         wallJumping = true;
-
-        for (int i = 4; i > 0; --i)
+        jumpTimed = true;
+        for (int i = 12; i > 0; --i)
         {
             walk.Use();
             yield return new WaitForFixedUpdate();
         }
         wallJumping = false;
+        for (int i = 18; i > 0; --i)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        jumpTimed = false;
+        
     }
 
 
