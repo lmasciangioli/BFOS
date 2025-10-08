@@ -16,11 +16,13 @@ public class Meter : MonoBehaviour
     public GameObject player;
     public Vector3 playerPos;
 
+    public float score = 0; 
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         originScale = meter.gameObject.transform.localScale;
+        score = 0;
     }
 
     void FixedUpdate()
@@ -36,12 +38,14 @@ public class Meter : MonoBehaviour
                 ChangeMeter(-decay);
             }
             playerPos = player.transform.position;
+            score += 0.1f;
         }
         else
         {
-
+            Debug.Log("Player's score for this level was: " + (1000 - score));
         }
         meter.gameObject.transform.localScale = new Vector3(originScale.x * (meterPercent / 100) , originScale.y, originScale.z);
+        
     }
 
     public void ChangeMeter(float amount)
