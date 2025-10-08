@@ -2019,6 +2019,84 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1561848379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561848381}
+  - component: {fileID: 1561848380}
+  m_Layer: 0
+  m_Name: _Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1561848380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561848379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b0d0cd5f0c5426fb00810e709fe3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gobloomba: {fileID: 550289049516795995, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
+  tweeter: {fileID: 6199465365616696716, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
+  trapper: {fileID: 3583510622859863052, guid: cc0be1752753b164db5e75615358edfd, type: 3}
+  enemies:
+  - type: 0
+    spawnPos: {x: -10.9, y: 20.6, z: 29.299995}
+    waypoints:
+    - {fileID: 1815727595}
+    - {fileID: 2002511999}
+    - {fileID: 1690860019}
+    - {fileID: 609124535}
+    - {fileID: 1579723326}
+    - {fileID: 1978457481}
+    - {fileID: 748526439}
+    - {fileID: 1672685044}
+    - {fileID: 1356822031}
+    - {fileID: 2071223191}
+    - {fileID: 234378033}
+    - {fileID: 1936197345}
+    - {fileID: 999424597}
+    - {fileID: 2078389115}
+    - {fileID: 1841460617}
+    - {fileID: 553458152}
+    - {fileID: 790488528}
+    - {fileID: 272682661}
+    - {fileID: 1671809771}
+    - {fileID: 1612574286}
+    - {fileID: 1136626601}
+    waypointIndex: 14
+    homing: 1
+    facing: 1
+    xBounds:
+    - 50
+    - -24
+--- !u!4 &1561848381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561848379}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 678.2971, y: 405.00507, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1568671174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2030,6 +2108,10 @@ PrefabInstance:
     - target: {fileID: 550289049516795995, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
       propertyPath: m_Name
       value: Goomba 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 550289049516795995, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3654334047805567183, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2349,6 +2431,10 @@ PrefabInstance:
     - target: {fileID: 550289049516795995, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
       propertyPath: m_Name
       value: Goomba 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 550289049516795995, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3654334047805567183, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3157,6 +3243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goomba
       objectReference: {fileID: 0}
+    - target: {fileID: 550289049516795995, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3654334047805567183, guid: 48aca2d4b0fb88b4ba9a21715e75dcfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.7
@@ -3713,6 +3803,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 282149514}
   - {fileID: 1783498043}
+  - {fileID: 1561848381}
   - {fileID: 1454111405}
   - {fileID: 705507995}
   - {fileID: 8733328}
