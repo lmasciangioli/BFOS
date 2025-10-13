@@ -18,8 +18,28 @@ public class WorldLevels : MonoBehaviour
         
     }
 
+
     void Update()
     {
-        
+        //if (waypointIndex <= waypoints.Length - 1)
+        //{
+        //    thisEnemy.transform.position = Vector3.MoveTowards(thisEnemy.transform.position, waypoints[waypointIndex].transform.position, speed * Time.deltaTime);
+
+
+        //    if (thisEnemy.transform.position == waypoints[waypointIndex].transform.position)
+        //    {
+        //        waypointIndex += 1;
+        //    }
+        //}
+        //else
+        //{
+        //    waypointIndex = 0;
+        //}
     }
+
+
+
+
+
+
 }

@@ -313,7 +313,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  jumpHeight: 25
+  jumpHeight: 35
   wallJumpforce: 846.6
   fallSpeed: 0
   isGrounded: 0
@@ -381,10 +381,11 @@ MonoBehaviour:
     duration: 0
     motor: {fileID: 5615824792207549746}
   playerColor: {r: 1, g: 0.5882353, b: 0.8901961, a: 0}
-  playerMat: {fileID: 0}
+  playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
   facing: 0
   meter: {fileID: 0}
   bfosAnim: {fileID: 0}
+  jumpy: 0
 --- !u!136 &2065890779201882490
 CapsuleCollider:
   m_ObjectHideFlags: 0
