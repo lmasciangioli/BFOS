@@ -29,7 +29,7 @@ public class Meter : MonoBehaviour
     {
         if (meterPercent < 100)
         {
-            if (player.transform.position == playerPos)
+            if (player.transform.position == playerPos && player.GetComponent<PlayerMotor>().parrying == false)
             {
                 ChangeMeter(-rapidDecay);
             }

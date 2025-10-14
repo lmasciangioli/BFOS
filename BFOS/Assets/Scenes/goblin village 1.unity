@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdd3ab60484f42d2bbfc26908ba321b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: SampleScene
+  sceneName: goblin village 1
 --- !u!4 &282149514
 Transform:
   m_ObjectHideFlags: 0

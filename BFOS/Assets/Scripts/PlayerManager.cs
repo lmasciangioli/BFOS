@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 playerMotor.canJump = true;
-                playerMotor.canParry = true;
+                playerMotor.canDash = true;
                 meter.ChangeMeter(meter.parry);
             }
             else

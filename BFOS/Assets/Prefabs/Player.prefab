@@ -351,7 +351,8 @@ MonoBehaviour:
   isWallRight: 0
   isActioning: 0
   isStunned: 0
-  canParry: 0
+  canDash: 0
+  canParry: 1
   canJump: 0
   parrying: 0
   velocity: {x: 0, y: 0, z: 0}
@@ -375,6 +376,9 @@ MonoBehaviour:
     duration: 0
     motor: {fileID: 5615824792207549746}
   parry:
+    duration: 0
+    motor: {fileID: 5615824792207549746}
+  dash:
     duration: 0
     motor: {fileID: 5615824792207549746}
   bfos:

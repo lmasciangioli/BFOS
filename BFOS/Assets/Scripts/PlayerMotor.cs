@@ -17,6 +17,7 @@ public class PlayerMotor : MonoBehaviour
     public bool isWallRight;
     public bool isActioning;
     public bool isStunned;
+    public bool canDash;
     public bool canParry;
     public bool canJump;
     public bool parrying;
@@ -37,6 +38,7 @@ public class PlayerMotor : MonoBehaviour
     public Jump jump;
     public WallJump wallJump;
     public Parry parry;
+    public Dash dash;
     public BFOS bfos;
 
     public Color playerColor;
@@ -125,12 +127,17 @@ public class PlayerMotor : MonoBehaviour
         }
         else if (Input.GetKeyDown("left shift"))
         {
-            bufferedAction = parry;
+            bufferedAction = dash;
             bufferCount = bufferAmount;
         }
         else if(Input.GetAxis("Fire1") > 0)
         {
             bufferedAction = bfos;
+            bufferCount = bufferAmount;
+        }
+        else if (Input.GetAxis("Fire2") > 0)
+        {
+            bufferedAction = parry;
             bufferCount = bufferAmount;
         }
     }
@@ -314,13 +321,59 @@ public class PlayerMotor : MonoBehaviour
     {
         public override bool Use()
         {
-            if(motor.canParry == true)
+            if(motor.isActioning == false && motor.isStunned == false && motor.canParry)
+            {
+                motor.StartParry();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+    }
+
+    public void StartParry()
+    {
+        StartCoroutine(ParryCo());
+    }
+
+    IEnumerator ParryCo()
+    {
+        playerMat.SetColor("_Color", Color.red);
+        canParry = false;
+        parrying = true;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+
+        for (int i = 12; i > 0; i--)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+
+        playerMat.SetColor("_Color", playerColor);
+        parrying = false;
+        for (int i = 18; i > 0; i--)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+        canParry = true;
+    }
+
+
+
+    [System.Serializable]
+    public class Dash : Action
+    {
+        public override bool Use()
+        {
+            if (motor.canDash == true)
             {
                 if (motor.isActioning == false)
                 {
                     if (motor.isGrounded == false)
                     {
-
                         motor.StartDash();
                         return true;
                     }
@@ -338,22 +391,19 @@ public class PlayerMotor : MonoBehaviour
             {
                 return false;
             }
-            
         }
     }
-
     public void StartDash()
     {
-        StartCoroutine(Dash());
+        StartCoroutine(DashCo());
     }
-    IEnumerator Dash()
+    IEnumerator DashCo()
     {
-        canParry = false;
+        canDash = false;
         isActioning = true;
         isStunned = true;
-        parrying = true;
         wallJumping = false;
-        playerMat.SetColor("_BaseColor", Color.red);
+        
         float vert = Input.GetAxisRaw("Vertical");
         float horiz;
         if (facing == Direction.Left)
@@ -374,9 +424,20 @@ public class PlayerMotor : MonoBehaviour
         rb.velocity = dashDirection * 5;
         isActioning = false;
         isStunned = false;
-        parrying = false;
-        playerMat.SetColor("_BaseColor", playerColor);
+        
     }
+     
+
+
+
+
+
+
+
+
+
+
+
 
 
     [System.Serializable]
