@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CloseCalls : MonoBehaviour
@@ -7,12 +8,21 @@ public class CloseCalls : MonoBehaviour
 
     public List<Collider> log = new List<Collider>();
     public float logDuration;
+    public float nearMissTimer;
+    public Transform playerTrans;
     public Meter meter;
+    public GameObject nearMissIndicator;
 
 
     void Start()
     {
+<<<<<<< Updated upstream
         meter = FindAnyObjectByType<Meter>();       // AM: again, probs look into Singleton. Searching the scene is one of the slowest operations you can do in Unity, so you want to avoid it as much as you can!
+=======
+        meter = FindAnyObjectByType<Meter>();
+        nearMissIndicator.SetActive(false);
+        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+>>>>>>> Stashed changes
     }
 
     void Update()
@@ -50,7 +60,8 @@ public class CloseCalls : MonoBehaviour
         if(isIn == false)
         {
             //NEAR MISS CODE HERE
-            Debug.Log("Miss!");
+            StartCoroutine(NearMissIndicator());
+            Debug.Log("NearMiss!");
             meter.ChangeMeter(meter.nearMiss);
 
 
@@ -70,5 +81,18 @@ public class CloseCalls : MonoBehaviour
         {
             yield return null;
         }
+    }
+    IEnumerator NearMissIndicator()
+    {
+        float timer = nearMissTimer;
+        nearMissIndicator.transform.position = playerTrans.position; 
+        nearMissIndicator.SetActive(true);
+
+        while (timer > 0)
+        {
+            yield return new WaitForFixedUpdate();
+            timer -= 0.02f;
+        }
+        nearMissIndicator.SetActive(false);
     }
 }
