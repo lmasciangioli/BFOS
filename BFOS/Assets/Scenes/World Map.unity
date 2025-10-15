@@ -172,6 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a701238e2204011954426f778c518f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 1027311364}
+  currentWorld: {fileID: 1496476666}
+  movingTo: 0
+  movingAttempt: 0
+  moving: 0
+  speed: 10
+  heightOffset: {x: 0, y: 55, z: 0}
 --- !u!114 &580232166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +335,74 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &1027311363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3278917092349062820, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_Name
+      value: _LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.3955307
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298727258514377220, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+--- !u!114 &1027311364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5907858487078940779, guid: ce5902b69f0fd4929b9458b641a129cd, type: 3}
+  m_PrefabInstance: {fileID: 1027311363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdd3ab60484f42d2bbfc26908ba321b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152542847
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a21e58c5e1540b3ba3f888eaeb2d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
+  levelName: SampleScene
   locked: 0
   worldLeft: {fileID: 1496476666}
   pathLeft: []
@@ -559,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a21e58c5e1540b3ba3f888eaeb2d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
+  levelName: Main Menu
   locked: 0
   worldLeft: {fileID: 0}
   pathLeft: []
@@ -672,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a21e58c5e1540b3ba3f888eaeb2d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
+  levelName: goblin village 1
   locked: 0
   worldLeft: {fileID: 1348512512}
   pathLeft: []
@@ -955,6 +1030,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1027311363}
   - {fileID: 1681899995}
   - {fileID: 831287060}
   - {fileID: 1293481305}
