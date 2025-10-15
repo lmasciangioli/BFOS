@@ -60,7 +60,7 @@ public class Trap : MonoBehaviour
         box.center = new Vector3(0,0,0);
 
         playIn = false;
-        if ((box.bounds.Contains(GameObject.FindGameObjectWithTag("Player").transform.position)))
+        if ((box.bounds.Contains(GameObject.FindGameObjectWithTag("Player").transform.position)))   // AM: defs look into Singleton pattern, so you can just do Player.Instance instead of searching for them.
         {
             playIn = true;
         }

@@ -36,6 +36,13 @@ public class Spawner : MonoBehaviour
     }
 
 
+    /*
+     *  AM: SpawnEnemy is a bit gross but probs fine if the number of enemies remains low.
+     *  If you add more, you might want to think about adding an OnSpawned function to your enemy scripts, and just
+     *  call enemy.OnSpawned() for their config; 
+     * 
+     */
+
 
     public void SpawnEnemy(EnemyPreset target)
     {

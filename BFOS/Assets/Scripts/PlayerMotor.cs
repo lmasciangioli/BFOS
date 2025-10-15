@@ -60,6 +60,20 @@ public class PlayerMotor : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
+         * it should be sign that your structure isn't right.
+         * 
+         * eg. you could try something like
+         *   float horiz = Input.GetAxis("Horizontal");
+         *   facing = horiz < 0 ? Direction.Left : Direction.Right;
+         *   if (isStunned == false)
+         *   {
+         *      // your other movement code here.
+         *   }
+         * 
+         * */
+
         rb.useGravity = true;
         if (Input.GetAxis("Horizontal") > 0)
         {
@@ -119,6 +133,7 @@ public class PlayerMotor : MonoBehaviour
 
     void Update()
     {
+        // AM: you probably want to use Input.GetButtonDown("Jump") so there's no hardcoding of keycodes.
         if (Input.GetKeyDown("space") || Input.GetKeyDown("w"))
         {
             bufferedAction = jump;
@@ -147,7 +162,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (bufferCount > 0)
         {
-            bufferCount -= 0.01f;
+            bufferCount -= 0.01f;   // AM: this probably wants to be Time.deltaTime instead of 0.01f.
         }
         else
         {
@@ -176,7 +191,7 @@ public class PlayerMotor : MonoBehaviour
     IEnumerator JumpBuffer()
     {
         jumpTimed = true;
-        for (int i = 43; i > 0 ;i--)
+        for (int i = 43; i > 0 ;i--)    // AM: wtf is this?
         {
             yield return new WaitForSecondsRealtime(0.01f);
             jumpTimed = true;
@@ -195,7 +210,7 @@ public class PlayerMotor : MonoBehaviour
 
 
 
-
+    // AM: all this looks hella machine genenerated tbh!.
     [System.Serializable]
     public class Action
     {
@@ -213,7 +228,8 @@ public class PlayerMotor : MonoBehaviour
         {
             if (motor.wallJumping)
             {
-                if (motor.wallJumpDirection == Direction.Left)
+                // AM: separate code paths like this is bad form.  Just do something like motor.rb.velocity = new Vector3(direction * motor.speed / 8, motor.rb.velocity.y, 0);  (where direction is either -1 or 1)
+                if (motor.wallJumpDirection == Direction.Left)  
                 {
                     motor.rb.velocity = new Vector3(-motor.speed / 8, motor.rb.velocity.y, 0);
                 }
@@ -362,6 +378,26 @@ public class PlayerMotor : MonoBehaviour
     }
 
 
+    /*
+     AM: multiple nested If-statements like this is pretty bad form!
+     You want to group them together, like
+    if (motor.CanDash && motor.isActioning == false && motir.isGrounded == false) 
+    {
+
+    }
+
+    ...or even better, use an early-out pattern, like
+    if (!canDash || isActioning || isGrounded)
+        return false;
+
+    motor.StartDash();
+    return true;
+
+
+    Much easier to read.
+
+    */
+    
 
     [System.Serializable]
     public class Dash : Action
