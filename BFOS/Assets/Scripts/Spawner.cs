@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public Meter meter;
     public GameObject gobloomba;
     public GameObject tweeter;
     public GameObject trapper;
@@ -22,6 +23,8 @@ public class Spawner : MonoBehaviour
 
         public Type type;
         public Vector3 spawnPos;
+        public int spawnPercent;
+        public bool spawned;
         
         [Header("Gobloomba Variables")]
         public Transform[] waypoints;
@@ -35,6 +38,13 @@ public class Spawner : MonoBehaviour
         public float[] xBounds = new float[2];
     }
 
+
+    /*
+     *  AM: SpawnEnemy is a bit gross but probs fine if the number of enemies remains low.
+     *  If you add more, you might want to think about adding an OnSpawned function to your enemy scripts, and just
+     *  call enemy.OnSpawned() for their config; 
+     * 
+     */
 
 
     public void SpawnEnemy(EnemyPreset target)
@@ -65,8 +75,28 @@ public class Spawner : MonoBehaviour
 
     public void Start()
     {
-        //SpawnEnemy(enemies[0]);
+        
     }
 
 
+    public void Update()
+    {
+        if(enemies is not null)
+        {
+            List<EnemyPreset> spawnedLog = new List<EnemyPreset>();
+            foreach (EnemyPreset enemy in enemies)
+            {
+                if (meter.meterPercent > enemy.spawnPercent && enemy.spawned == false)
+                {
+                    enemy.spawned = true;
+                    SpawnEnemy(enemy);
+                    spawnedLog.Add(enemy);
+                }
+            }
+            foreach(EnemyPreset enemy in spawnedLog)
+            {
+                enemies.Remove(enemy);
+            }
+        }
+    }
 }

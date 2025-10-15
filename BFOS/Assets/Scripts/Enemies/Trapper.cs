@@ -19,7 +19,7 @@ public class Trapper : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");        // AM: Player.Instance
         StartCoroutine(Wander());
     }
 

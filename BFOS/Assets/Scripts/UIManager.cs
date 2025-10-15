@@ -29,6 +29,10 @@ public class UIManager : MonoBehaviour
     }
 
     //there is almopst certainly a way to just have a "back button"function, but I cant figure it out rn.
+
+    // AM: UI devs usually use a Stack container to track what screen they're on, and what came before it..and what came before that etc.
+    // your soln is fine for just a few screens though.
+   
     public void PressBackOPTIONS()
     {
         optionsCanavs.SetActive(false);

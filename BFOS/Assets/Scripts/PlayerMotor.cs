@@ -60,6 +60,20 @@ public class PlayerMotor : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
+         * it should be sign that your structure isn't right.
+         * 
+         * eg. you could try something like
+         *   float horiz = Input.GetAxis("Horizontal");
+         *   facing = horiz < 0 ? Direction.Left : Direction.Right;
+         *   if (isStunned == false)
+         *   {
+         *      // your other movement code here.
+         *   }
+         * 
+         * */
+
         rb.useGravity = true;
         if (Input.GetAxis("Horizontal") > 0)
         {
@@ -119,7 +133,7 @@ public class PlayerMotor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("space") || Input.GetKeyDown("w"))
+        if (Input.GetButtonDown("Jump"))
         {
             bufferedAction = jump;
             bufferCount = bufferAmount;
@@ -147,7 +161,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (bufferCount > 0)
         {
-            bufferCount -= 0.01f;
+            bufferCount -= 0.01f;   // AM: this probably wants to be Time.deltaTime instead of 0.01f.
         }
         else
         {
@@ -176,7 +190,7 @@ public class PlayerMotor : MonoBehaviour
     IEnumerator JumpBuffer()
     {
         jumpTimed = true;
-        for (int i = 43; i > 0 ;i--)
+        for (int i = 43; i > 0 ;i--)    // AM: wtf is this?
         {
             yield return new WaitForSecondsRealtime(0.01f);
             jumpTimed = true;
@@ -190,7 +204,6 @@ public class PlayerMotor : MonoBehaviour
         StartCoroutine(bufferCountdown());
         playerMat.SetColor("_BaseColor", playerColor);
     }
-
 
 
 
@@ -213,7 +226,8 @@ public class PlayerMotor : MonoBehaviour
         {
             if (motor.wallJumping)
             {
-                if (motor.wallJumpDirection == Direction.Left)
+                // AM: separate code paths like this is bad form.  Just do something like motor.rb.velocity = new Vector3(direction * motor.speed / 8, motor.rb.velocity.y, 0);  (where direction is either -1 or 1)
+                if (motor.wallJumpDirection == Direction.Left)  
                 {
                     motor.rb.velocity = new Vector3(-motor.speed / 8, motor.rb.velocity.y, 0);
                 }
@@ -360,39 +374,22 @@ public class PlayerMotor : MonoBehaviour
         }
         canParry = true;
     }
-
-
+    
 
     [System.Serializable]
     public class Dash : Action
     {
         public override bool Use()
         {
-            if (motor.canDash == true)
-            {
-                if (motor.isActioning == false)
-                {
-                    if (motor.isGrounded == false)
-                    {
-                        motor.StartDash();
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
+            if (!motor.canDash || motor.isActioning || motor.isGrounded)
                 return false;
-            }
+
+            motor.StartDash();
+            return true;
+
         }
     }
+
     public void StartDash()
     {
         StartCoroutine(DashCo());

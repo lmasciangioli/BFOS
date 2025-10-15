@@ -10,7 +10,8 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();
-        levels = FindAnyObjectByType<LevelManager>();
+        levels = FindAnyObjectByType<LevelManager>();       // AM: look into Singleton pattern if you need access to something there's only ever going to be one instance of.
+                                                            // eg. so you can just do LevelManager.Instance,  instead of searching for it.
     }
 
     // Update is called once per frame
@@ -43,6 +44,17 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
+    /*
+     *  AM: better form to just see if you can get the component out of the collision, and use that.
+     *  eg. var trap = collision.gameObject.GetComponent<Trap>();
+     *  if (trap != null && trap.live)
+     *  {
+     *      ResetScene();
+     *  }
+     *  Relying on tags is prob gonna be a bad time.
+     * 
+     */
 
 
     public void OnCollisionStay(Collision collision)
