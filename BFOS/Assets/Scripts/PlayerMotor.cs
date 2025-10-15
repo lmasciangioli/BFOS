@@ -133,8 +133,7 @@ public class PlayerMotor : MonoBehaviour
 
     void Update()
     {
-        // AM: you probably want to use Input.GetButtonDown("Jump") so there's no hardcoding of keycodes.
-        if (Input.GetKeyDown("space") || Input.GetKeyDown("w"))
+        if (Input.GetButtonDown("Jump"))
         {
             bufferedAction = jump;
             bufferCount = bufferAmount;
@@ -210,7 +209,6 @@ public class PlayerMotor : MonoBehaviour
 
 
 
-    // AM: all this looks hella machine genenerated tbh!.
     [System.Serializable]
     public class Action
     {
@@ -376,27 +374,6 @@ public class PlayerMotor : MonoBehaviour
         }
         canParry = true;
     }
-
-
-    /*
-     AM: multiple nested If-statements like this is pretty bad form!
-     You want to group them together, like
-    if (motor.CanDash && motor.isActioning == false && motir.isGrounded == false) 
-    {
-
-    }
-
-    ...or even better, use an early-out pattern, like
-    if (!canDash || isActioning || isGrounded)
-        return false;
-
-    motor.StartDash();
-    return true;
-
-
-    Much easier to read.
-
-    */
     
 
     [System.Serializable]
@@ -404,31 +381,15 @@ public class PlayerMotor : MonoBehaviour
     {
         public override bool Use()
         {
-            if (motor.canDash == true)
-            {
-                if (motor.isActioning == false)
-                {
-                    if (motor.isGrounded == false)
-                    {
-                        motor.StartDash();
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
+            if (!motor.canDash || motor.isActioning || motor.isGrounded)
                 return false;
-            }
+
+            motor.StartDash();
+            return true;
+
         }
     }
+
     public void StartDash()
     {
         StartCoroutine(DashCo());
