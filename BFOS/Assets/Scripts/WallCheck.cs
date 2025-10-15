@@ -18,7 +18,7 @@ public class WallCheck : MonoBehaviour
         {
             if(side == wallSide.Left)
             {
-                playerMotor.isWallLeft = true;
+                playerMotor.isWallLeft = true;  // AM: this would prob be nicer to work with if it was playerMotor.WallDirection (left/right/none) instead of separate bools. Wouldn't need separate code paths.
             }
             else
             {

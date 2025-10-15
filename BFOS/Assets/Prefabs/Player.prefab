@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8023981144353964944}
   - component: {fileID: 3306279999345496515}
   - component: {fileID: 1258719447859456459}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Close collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - component: {fileID: 6530989980808901036}
   - component: {fileID: 3042948835185226551}
   - component: {fileID: 2984998006812340687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheckLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 2977905568729855571}
   - component: {fileID: 2899006654900233915}
   - component: {fileID: 6818176755237919820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallCheckRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 5615824792207549746}
   - component: {fileID: 2065890779201882490}
   - component: {fileID: 7033401331151648075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2857284848721034011}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.79, y: 6.13, z: 6.6}
   m_LocalScale: {x: 2.5071993, y: 4.403689, z: 2.0695}
   m_ConstrainProportionsScale: 0
@@ -342,8 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8595969285e4446a2a3b332a6e6c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
-  jumpHeight: 35
+  speed: 40
+  jumpHeight: 50
   wallJumpforce: 846.6
   fallSpeed: 0
   isGrounded: 0
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 256226517208929919}
   - component: {fileID: 3955140659798299655}
   - component: {fileID: 9142767237290571281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 6267269916263645649}
   - component: {fileID: 8559037689518349116}
   - component: {fileID: 6236427452008616752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,6 +642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: main character eyes
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6a9672afb2eaf334a9ca28f1718a6b3d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -715,6 +719,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5d8b26defdce9fa49acc4bc934f39037, type: 3}
       propertyPath: m_Name
       value: lowPoly_armour
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5d8b26defdce9fa49acc4bc934f39037, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -794,6 +802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: lowPoly_body
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e433e8a72b67daf4f8e8406c65a443b0, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -867,6 +879,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b39fe91131e98ee4fa9d33fa11e34aa1, type: 3}
       propertyPath: m_Name
       value: lowPoly_scarf
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b39fe91131e98ee4fa9d33fa11e34aa1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
