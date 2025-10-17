@@ -16,13 +16,10 @@ public class CloseCalls : MonoBehaviour
 
     void Start()
     {
-<<<<<<< Updated upstream
         meter = FindAnyObjectByType<Meter>();       // AM: again, probs look into Singleton. Searching the scene is one of the slowest operations you can do in Unity, so you want to avoid it as much as you can!
-=======
         meter = FindAnyObjectByType<Meter>();
         nearMissIndicator.SetActive(false);
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
->>>>>>> Stashed changes
     }
 
     void Update()
