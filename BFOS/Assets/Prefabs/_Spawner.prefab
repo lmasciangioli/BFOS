@@ -81,3 +81,4 @@ MonoBehaviour:
     xBounds:
     - 50
     - -24
+    settingTime: 2.5

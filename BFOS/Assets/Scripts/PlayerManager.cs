@@ -72,7 +72,6 @@ public class PlayerManager : MonoBehaviour
     public void ResetScene()
     {
         Debug.Log("BONG");
-        levels.sceneName = "SampleScene";
         levels.changeScene();
     }
 }

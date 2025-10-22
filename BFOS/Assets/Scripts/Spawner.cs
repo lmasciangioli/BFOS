@@ -36,6 +36,7 @@ public class Spawner : MonoBehaviour
 
         [Header("Trapper Variables")]
         public float[] xBounds = new float[2];
+        public float settingTime;
     }
 
 
@@ -69,6 +70,7 @@ public class Spawner : MonoBehaviour
             enemy = Instantiate(trapper);
             Trapper enemyScript = enemy.GetComponent<Trapper>();
             enemyScript.xBounds = target.xBounds;
+            enemyScript.settingTime = target.settingTime;
         }
         enemy.transform.position = target.spawnPos;
     }

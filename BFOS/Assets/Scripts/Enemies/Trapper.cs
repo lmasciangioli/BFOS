@@ -10,6 +10,7 @@ public class Trapper : MonoBehaviour
     public bool moving;
     public float[] xBounds = new float[2];
     public float target;
+    public float settingTime;
     public float speed;
 
 
@@ -28,7 +29,7 @@ public class Trapper : MonoBehaviour
         target = Random.Range(xBounds[0], xBounds[1]);
         moving = true;
         yield return new WaitUntil(() => moving == false);
-        yield return new WaitForSecondsRealtime(2.5f);
+        yield return new WaitForSecondsRealtime(settingTime);
         StartCoroutine(Trap());
     }
     IEnumerator Trap()
