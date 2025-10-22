@@ -310,10 +310,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2009149415175461894, guid: bd644ec30a07f7e4e9148235b5385b17, type: 3}
-      propertyPath: meterPercent
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3365418694787777820, guid: bd644ec30a07f7e4e9148235b5385b17, type: 3}
       propertyPath: m_Pivot.x
       value: 0

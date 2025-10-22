@@ -75,6 +75,11 @@ public class PlayerMotor : MonoBehaviour
          * */
 
         rb.useGravity = true;
+
+        //float horiz = Input.GetAxis("Horizontal");
+        //facing = horiz < 0 ? Direction.Left : Direction.Right;
+
+
         if (Input.GetAxis("Horizontal") > 0)
         {
             facing = Direction.Right;
@@ -227,14 +232,10 @@ public class PlayerMotor : MonoBehaviour
             if (motor.wallJumping)
             {
                 // AM: separate code paths like this is bad form.  Just do something like motor.rb.velocity = new Vector3(direction * motor.speed / 8, motor.rb.velocity.y, 0);  (where direction is either -1 or 1)
-                if (motor.wallJumpDirection == Direction.Left)  
-                {
-                    motor.rb.velocity = new Vector3(-motor.speed / 8, motor.rb.velocity.y, 0);
-                }
-                else
-                {
-                    motor.rb.velocity = new Vector3(motor.speed / 8, motor.rb.velocity.y, 0);
-                }
+                int direction = motor.wallJumpDirection == Direction.Left ? -1 : 1;
+
+                motor.rb.velocity = new Vector3(direction * motor.speed / 8, motor.rb.velocity.y, 0);
+
             }
             else
             {

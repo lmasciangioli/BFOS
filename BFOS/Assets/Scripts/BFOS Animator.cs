@@ -14,13 +14,15 @@ public class BFOSAnimator : MonoBehaviour
         foreach(Sprite sprite in sequence)
         {
             image.sprite = sprite;
-            yield return new WaitForSecondsRealtime(1 / fps);
+
+            yield return new WaitForFixedUpdate();
+            yield return new WaitForFixedUpdate();
         }
     }
     public void Play()
     {
         StartCoroutine(RenderSequence());
     }
-
+    
 
 }
