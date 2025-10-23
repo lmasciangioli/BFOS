@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Meter : MonoBehaviour
 {
+
     public GameObject meter;
     public float meterPercent = 50f;
     public float decay;
@@ -31,7 +32,7 @@ public class Meter : MonoBehaviour
         {
             if (player.transform.position == playerPos && player.GetComponent<PlayerMotor>().parrying == false)
             {
-                ChangeMeter(-rapidDecay);
+                ChangeMeter(-rapidDecay); 
             }
             else
             {
