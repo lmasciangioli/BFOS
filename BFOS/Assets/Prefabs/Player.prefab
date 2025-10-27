@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 5615824792207549746}
   - component: {fileID: 2065890779201882490}
   - component: {fileID: 7033401331151648075}
+  - component: {fileID: 1344085357700365519}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -432,6 +433,20 @@ MonoBehaviour:
   levels: {fileID: 0}
   playerMotor: {fileID: 5615824792207549746}
   meter: {fileID: 0}
+--- !u!114 &1344085357700365519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857284848721034011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ab923085eec499ab8c8bd1ba6f5bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  animator: {fileID: 6221924630066808125}
 --- !u!1 &4774668283785828394
 GameObject:
   m_ObjectHideFlags: 0
