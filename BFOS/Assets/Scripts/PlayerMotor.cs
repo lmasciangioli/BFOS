@@ -233,8 +233,8 @@ public class PlayerMotor : MonoBehaviour
             {
                 // AM: separate code paths like this is bad form.  Just do something like motor.rb.velocity = new Vector3(direction * motor.speed / 8, motor.rb.velocity.y, 0);  (where direction is either -1 or 1)
                 int direction = motor.wallJumpDirection == Direction.Left ? -1 : 1;
-
-                motor.rb.velocity = new Vector3(direction * motor.speed / 8, motor.rb.velocity.y, 0);
+                //changed the y value from 8 to 1 to give more horizontal movement - blaire
+                motor.rb.velocity = new Vector3(direction * motor.speed / 1, motor.rb.velocity.y, 0);
 
             }
             else
@@ -315,7 +315,8 @@ public class PlayerMotor : MonoBehaviour
     {
         wallJumping = true;
         jumpTimed = true;
-        for (int i = 12; i > 0; --i)
+        //changed wall jump duration to 6 from 12 - Blaire
+        for (int i = 6; i > 0; --i)
         {
             walk.Use();
             yield return new WaitForFixedUpdate();
@@ -397,6 +398,7 @@ public class PlayerMotor : MonoBehaviour
     }
     IEnumerator DashCo()
     {
+        //is there a way to make the dash cut off early if the wall detectors are triggered? rn if a player dashes into a wall, they hang in air until the dash timer hits 0. Maybe an if statement checking of the wall detector was triggered and if so, instantly setting the i value to 0? - Blaire
         canDash = false;
         isActioning = true;
         isStunned = true;
@@ -416,7 +418,8 @@ public class PlayerMotor : MonoBehaviour
         rb.velocity = new Vector3(0, 0, 0);
         for (int i = 10; i > 0; i--)
         {
-            rb.velocity = dashDirection * 40;
+            //changed the dash speed from 40 to 80, feels a bit better in my opinion - Blaire
+            rb.velocity = dashDirection * 80;
             yield return new WaitForFixedUpdate();
         }
         rb.velocity = dashDirection * 5;
