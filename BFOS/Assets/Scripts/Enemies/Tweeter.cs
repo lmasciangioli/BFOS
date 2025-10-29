@@ -8,7 +8,8 @@ public class Tweeter : MonoBehaviour
     public PlayerMotor.Direction facing;
     public float facingOffset;
     public bool homing;
-
+    public float projectileStartDelay;
+    public float projectileInterval;
     void Start()
     {
         StartCoroutine(Wander());
@@ -16,7 +17,7 @@ public class Tweeter : MonoBehaviour
 
     IEnumerator Wander()
     {
-        yield return new WaitForSecondsRealtime(2.5f);
+        yield return new WaitForSecondsRealtime(projectileStartDelay);
         StartCoroutine(Shoot());
     }
     IEnumerator Shoot()
@@ -40,7 +41,7 @@ public class Tweeter : MonoBehaviour
         
 
 
-        yield return new WaitForSecondsRealtime(1.2f);
+        yield return new WaitForSecondsRealtime(projectileInterval);
         StartCoroutine(Wander());
     }
 }

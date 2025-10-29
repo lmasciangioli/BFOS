@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public string sceneName;
+    public static LevelManager levelManager;
+
+    public void Awake()
+    {
+        levelManager = this;
+    }
 
     public void changeScene()
     {
