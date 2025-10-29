@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
-  jumpHeight: 50
+  jumpHeight: 120
   wallJumpforce: 846.6
   fallSpeed: 0
   isGrounded: 0
@@ -447,6 +447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   animator: {fileID: 6221924630066808125}
+  currentAnimation: 
+  crossfade: 0.2
 --- !u!1 &4774668283785828394
 GameObject:
   m_ObjectHideFlags: 0
