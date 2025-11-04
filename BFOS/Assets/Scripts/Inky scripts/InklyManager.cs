@@ -12,9 +12,13 @@ public class InklyManager : MonoBehaviour
     public GameObject choiceTwoButton;
     public TextMeshProUGUI uIchoiceOne;
     public TextMeshProUGUI uIchoiceTwo;
+    public GameObject camAnim;
+    public GameObject playerAnim;
+   
     // Start is called before the first frame update
     void Start()
     {
+        camAnim = GameObject.FindGameObjectWithTag("MainCamera");
         choiceOneButton.SetActive(false);
         choiceTwoButton.SetActive(false);
         uIText.text = "";
@@ -40,6 +44,28 @@ public class InklyManager : MonoBehaviour
             Choice choiceTwo = _inkStory.currentChoices[1];
             uIchoiceOne.text = "Choice 1. " + choiceOne.text;
             uIchoiceTwo.text = "Choice 2. " + choiceTwo.text;
+        }
+
+        if ((string)_inkStory.variablesState["cameraPos"] == "AgentIn")
+        {
+            camAnim.GetComponent<CameraAnimation>().AgentIn();
+            _inkStory.variablesState["cameraPos"] = "";
+        }
+
+        if ((string)_inkStory.variablesState["cameraPos"] == "AgentOut")
+        {
+            camAnim.GetComponent<CameraAnimation>().AgentOut();
+            _inkStory.variablesState["cameraPos"] = "";
+        }
+        if ((string)_inkStory.variablesState["cameraPos"] == "AgentToPlayer")
+        {
+            camAnim.GetComponent<CameraAnimation>().AgentToPlayer();
+            _inkStory.variablesState["cameraPos"] = "";
+        }
+        if ((string)_inkStory.variablesState["cameraPos"] == "PlayerToAgent")
+        {
+            camAnim.GetComponent<CameraAnimation>().PlayerToAgent();
+            _inkStory.variablesState["cameraPos"] = "";
         }
     }
 
