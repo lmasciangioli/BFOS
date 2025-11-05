@@ -13,11 +13,14 @@ public class InklyManager : MonoBehaviour
     public TextMeshProUGUI uIchoiceOne;
     public TextMeshProUGUI uIchoiceTwo;
     public GameObject camAnim;
-    public GameObject playerAnim;
-   
+    public GameObject gobloomba;
+    public LevelManager levelChanger;
     // Start is called before the first frame update
     void Start()
     {
+        levelChanger = FindAnyObjectByType<LevelManager>();
+        gobloomba = GameObject.FindGameObjectWithTag("Enemy");
+        gobloomba.SetActive(false);
         camAnim = GameObject.FindGameObjectWithTag("MainCamera");
         choiceOneButton.SetActive(false);
         choiceTwoButton.SetActive(false);
@@ -31,7 +34,7 @@ public class InklyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_inkStory.canContinue && Input.GetKeyDown(KeyCode.P))
+        if(_inkStory.canContinue && (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire1")))
         {
             uIText.text = _inkStory.Continue();
         }
@@ -66,6 +69,15 @@ public class InklyManager : MonoBehaviour
         {
             camAnim.GetComponent<CameraAnimation>().PlayerToAgent();
             _inkStory.variablesState["cameraPos"] = "";
+        }
+        if ((bool)_inkStory.variablesState["gobloombaSpawn"] == true)
+        {
+            gobloomba.SetActive(true);
+        }
+
+        if ((bool)_inkStory.variablesState["nextScene"] == true)
+        {
+            levelChanger.changeScene();
         }
     }
 

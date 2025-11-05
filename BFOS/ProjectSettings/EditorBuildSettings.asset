@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Blaire Tuturial Scenes/LVL0-5.unity
     guid: 5275b7ea0288bb64291132bec9419243
+  - enabled: 1
+    path: Assets/Scenes/Blaire Tuturial Scenes/LVL0-6.unity
+    guid: c9993cbbc6c8afc4093886452e679632
   m_configObjects: {}

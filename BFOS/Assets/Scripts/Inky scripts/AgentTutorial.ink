@@ -1,6 +1,8 @@
 VAR cameraPos = ""
+VAR gobloombaSpawn = false
+VAR nextScene = false
 
-(???) - Hey You! (Press P to Continue Conversation)
+(???) - Hey You!
 
 (You) - ...
 
@@ -46,6 +48,38 @@ VAR cameraPos = ""
 (Agent Tutorial) - Anyways
 (Agent Tutorial) - I've been watching you from afar, and left those handy signs pointing you to my direction.
 (Agent Tutorial) - You have a knack for avoiding these guys, but do you know how to truely defeat them?
+(Agent Tutorial) - Do you even know the power of...
+(Agent Tutorial) - The.
+(Agent Tutorial) - Big.
+(Agent Tutorial) - Fuck.
+(Agent Tutorial) - Off.
+(Agent Tutorial) - SWORD!?!
+
+~ cameraPos = "AgentToPlayer"
+
+(You) - Not particularly, I've only just booted up the game so nothing has been properly explained to me yet.
+
+~ cameraPos = "PlayerToAgent"
+~ gobloombaSpawn = true
+
+(Agent Tutorial) - Great. With everything in the balance and you don't even-
+
+~ cameraPos = "AgentOut"
+
+(Gobloomba) - GET BACK HERE BEFORE I TURN YOU INTO SOME SORT OF VAUGELY BRITISH DISH!!!
+
+~ cameraPos = "AgentIn"
+
+(Agent Tutorial) - Oh this fucking guy...
+
+(Agent Tutorial) - Alright Just follow my lead, and try not to get yourself killed.
+
+~ cameraPos = "AgentOut"
+
+(You) - Okay...
+
+~ nextScene = true
+
 ->DONE
 
 
