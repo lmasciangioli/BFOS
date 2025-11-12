@@ -62,6 +62,7 @@ public class Trap : MonoBehaviour
         playIn = false;
         if ((box.bounds.Contains(GameObject.FindGameObjectWithTag("Player").transform.position)))   // AM: defs look into Singleton pattern, so you can just do Player.Instance instead of searching for them.
         {
+            Debug.Log("player detected in");
             playIn = true;
         }
         if (playIn)

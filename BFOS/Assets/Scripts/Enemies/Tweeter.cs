@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tweeter : MonoBehaviour
 {
     public GameObject bird;
+    public CapsuleCollider tweeter;
     public PlayerMotor.Direction facing;
     public float facingOffset;
     public bool homing;
@@ -33,7 +34,7 @@ public class Tweeter : MonoBehaviour
 
 
         GameObject shot = Instantiate(bird);
-        shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y, 6.6f);
+        shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y + (tweeter.height / 2), 6.6f);
         //shot.transform.lossyScale = new Vector3(1, 1, 1);
         Projectile proj = shot.GetComponent<Projectile>();
         proj.facing = facing;
