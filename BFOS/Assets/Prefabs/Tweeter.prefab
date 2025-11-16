@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5877434146286599044}
-  - component: {fileID: 4708314065941739753}
   - component: {fileID: 5513255412299748383}
   - component: {fileID: 7572054650390459111}
   m_Layer: 6
@@ -35,14 +34,6 @@ Transform:
   - {fileID: 2803511404754787313}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4708314065941739753
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6199465365616696716}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!136 &5513255412299748383
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -79,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 1576544535379012913, guid: dbf4234dd014a6445be73cd9a23569ae, type: 3}
+  tweeter: {fileID: 0}
   facing: 0
   facingOffset: 0
   homing: 1
