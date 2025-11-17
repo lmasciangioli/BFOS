@@ -207,6 +207,10 @@ public class PlayerMotor : MonoBehaviour
         meter = FindAnyObjectByType<Meter>();
         bfosAnim = FindAnyObjectByType<BFOSAnimator>();
         StartCoroutine(bufferCountdown());
+    }
+
+    private void Awake()
+    {
         playerMat.SetColor("_BaseColor", playerColor);
     }
 

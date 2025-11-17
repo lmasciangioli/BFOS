@@ -7,11 +7,12 @@ public class PlayerManager : MonoBehaviour
     public LevelManager levels;
     public PlayerMotor playerMotor;
     public Meter meter;
+    public UIManager uiManager;
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();
         levels = FindAnyObjectByType<LevelManager>();       // AM: look into Singleton pattern if you need access to something there's only ever going to be one instance of.
-                                                            // eg. so you can just do LevelManager.Instance,  instead of searching for it.
+        uiManager = FindAnyObjectByType<UIManager>();                                                    // eg. so you can just do LevelManager.Instance,  instead of searching for it.
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour
                 playerMotor.canJump = true;
                 playerMotor.canDash = true;
                 meter.ChangeMeter(meter.parry);
+                uiManager.DisplayParticals();
             }
             else
             {

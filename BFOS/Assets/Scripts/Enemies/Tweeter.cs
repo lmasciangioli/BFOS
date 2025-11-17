@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tweeter : MonoBehaviour
@@ -14,6 +15,12 @@ public class Tweeter : MonoBehaviour
     void Start()
     {
         StartCoroutine(Wander());
+        tweeter = this.GetComponent<CapsuleCollider>();
+        facingOffset = 5;
+        if (facing == PlayerMotor.Direction.Left)
+        {
+            facingOffset = -facingOffset;
+        }
     }
 
     IEnumerator Wander()
@@ -23,16 +30,6 @@ public class Tweeter : MonoBehaviour
     }
     IEnumerator Shoot()
     {
-        if(facing == PlayerMotor.Direction.Left)
-        {
-            facingOffset = -1.6f;
-        }
-        else
-        {
-            facingOffset = 1.6f;
-        }
-
-
         GameObject shot = Instantiate(bird);
         shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y + (tweeter.height / 2), 6.6f);
         //shot.transform.lossyScale = new Vector3(1, 1, 1);

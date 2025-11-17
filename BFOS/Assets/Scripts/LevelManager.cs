@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     public void Awake()
     {
         levelManager = this;
+
     }
 
     public void changeScene()

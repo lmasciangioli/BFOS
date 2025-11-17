@@ -30,7 +30,8 @@ public class Projectile : MonoBehaviour
         {
             if (facing == PlayerMotor.Direction.Left)
             {
-                transform.position -= transform.forward * Time.deltaTime * speed;
+                transform.eulerAngles = new Vector3(0.0f, -90.0f, 0.0f);
+                transform.position += transform.forward * Time.deltaTime * speed;
             }
             else
             {
@@ -47,10 +48,6 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") == false)
         {
             Destroy(gameObject);
-        }
-        else
-        {
-
         }
     }
 

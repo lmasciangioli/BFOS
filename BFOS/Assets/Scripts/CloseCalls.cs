@@ -12,6 +12,7 @@ public class CloseCalls : MonoBehaviour
     public Transform playerTrans;
     public Meter meter;
     public GameObject nearMissIndicator;
+    public UIManager uIManager;
 
 
     void Start()
@@ -20,6 +21,7 @@ public class CloseCalls : MonoBehaviour
         meter = FindAnyObjectByType<Meter>();
         nearMissIndicator.SetActive(false);
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        uIManager = FindAnyObjectByType<UIManager>();
     }
 
     void Update()
@@ -60,6 +62,7 @@ public class CloseCalls : MonoBehaviour
             StartCoroutine(NearMissIndicator());
             Debug.Log("NearMiss!");
             meter.ChangeMeter(meter.nearMiss);
+            uIManager.DisplayParticals();
 
 
 

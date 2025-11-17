@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject menuCanvas;
     public GameObject optionsCanavs;
     public GameObject creditsCanvas;
+    public GameObject scoreIncreaseParticals;
 
     private void Start()
     {
@@ -53,5 +54,10 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
         Debug.Log("Quit");
+    }
+
+    public void DisplayParticals()
+    {
+        scoreIncreaseParticals.GetComponent<ParticleSystem>().Play();
     }
 }
