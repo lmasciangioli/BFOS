@@ -26,7 +26,6 @@ public class PlayerMotor : MonoBehaviour
 
     public Rigidbody rb;
     public Collider collider;
-
     public float bufferCount;
     public float bufferAmount;
     public Action bufferedAction;

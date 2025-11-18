@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 5661062680472225171}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.51, z: 0}
   m_LocalScale: {x: 6.2443523, y: 4.0582, z: 4.0581994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,8 +303,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.7
+  m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7472849440538196177
@@ -325,6 +325,7 @@ MonoBehaviour:
   playerTrans: {fileID: 0}
   meter: {fileID: 0}
   nearMissIndicator: {fileID: 0}
+  uIManager: {fileID: 0}
 --- !u!1 &6137377327868002071
 GameObject:
   m_ObjectHideFlags: 0
