@@ -43,6 +43,7 @@ public class PlayerMotor : MonoBehaviour
     public Color playerColor;
     public Material playerMat;
 
+    public Animator animator;
     public enum Direction
     {
         Left,
@@ -244,6 +245,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.run;
                 motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
+                motor.animator.SetFloat("Velocity", motor.velocity.x);
             }
 
             
