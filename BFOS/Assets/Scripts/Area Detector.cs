@@ -8,18 +8,17 @@ public class AreaDetector : MonoBehaviour
     public float timeLimit = 6f;
     private float currentTime;
     private bool timerActive = false;
-    public MeshRenderer warning1;
-    public MeshRenderer warning2;
-    public Spears spearsScript;
-    public SpearRptation SpearRptation;
-
-    public bool isMiddleSpears = false;
+    public GameObject warning1;
+    public GameObject warning2;
+    public GameObject spearsBottom;
+    public GameObject SpearsTop;
+    public Spears move;
 
 
     private void Start()
     {
-        warning1.enabled = false;
-        warning2.enabled = false;
+        warning1.GetComponent<MeshRenderer>().enabled = false;
+        warning2.GetComponent<MeshRenderer>().enabled = false;
 
     }
     void Update()
@@ -30,8 +29,8 @@ public class AreaDetector : MonoBehaviour
             currentTime -= Time.deltaTime;
             if (currentTime <= 3)
             {
-                warning1.enabled = true;
-                warning2.enabled = true;
+                warning1.GetComponent<MeshRenderer>().enabled = true;
+                warning2.GetComponent<MeshRenderer>().enabled = true;
                 Debug.Log("3");
                 
             }
@@ -39,17 +38,9 @@ public class AreaDetector : MonoBehaviour
             {
                 timerActive = false;
                 Debug.Log("0");
-                warning1.enabled = false;
-                warning2.enabled = false;
-                if (isMiddleSpears == true)
-                {
-                    SpearRptation.move = true;
-                }
-                else
-                {
-                    spearsScript.move = true;
-                }
-                
+                warning1.GetComponent<MeshRenderer>().enabled = false;
+                warning2.GetComponent<MeshRenderer>().enabled = false;
+                move = GetComponent<Spears>();
             }
         }
     }
@@ -67,8 +58,6 @@ public class AreaDetector : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             timerActive = false;
-            warning1.enabled = false;
-            warning2.enabled = false;
             Debug.Log("exit");
         }
     }
