@@ -18,7 +18,7 @@ VAR nextScene = false
 
 (???) - Apologise citizen, allow me to introduce myself. 
 (???) - I am a Federal Agent of the kingdom, sent to help the keeper of the Big Fuck Off Sword, which appears to be yourself.
-(Agent Tutorial) - Name's Tuturial, Pleasure to meet you.
+(Agent Tutorial) - Name's Tutorial, Pleasure to meet you.
 
 (Agent Tutorial) - As for why I am hitting on you, 
 
@@ -66,11 +66,13 @@ VAR nextScene = false
 
 ~ cameraPos = "AgentOut"
 
-(Gobloomba) - GET BACK HERE BEFORE I TURN YOU INTO SOME SORT OF VAUGELY BRITISH DISH!!!
+(Gobloomba) - GET BACK 'ERE 'FORE I TURN YOU INTA SOME SORTA VAUGELY BRI-ISH DISH!!!
 
 ~ cameraPos = "AgentIn"
 
 (Agent Tutorial) - Oh this fucking guy...
+
+(Agent Tutorial) - Why are Goblins always British?
 
 (Agent Tutorial) - Alright Just follow my lead, and try not to get yourself killed.
 

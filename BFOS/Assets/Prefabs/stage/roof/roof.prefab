@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29ef26570ec665e4d9d6334d8a56127a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4
+      value: 112.71
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29ef26570ec665e4d9d6334d8a56127a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 69.9
+      value: 63.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29ef26570ec665e4d9d6334d8a56127a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.6
+      value: 14.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 29ef26570ec665e4d9d6334d8a56127a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 29ef26570ec665e4d9d6334d8a56127a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bc3a08b3ddd5bda429e4430e37b25142, type: 2}
+      objectReference: {fileID: 2100000, guid: c65711a72dbe4984ca2dcfa2c0d75652, type: 2}
     - target: {fileID: 919132149155446097, guid: 29ef26570ec665e4d9d6334d8a56127a, type: 3}
       propertyPath: m_Name
       value: roof

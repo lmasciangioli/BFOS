@@ -12,14 +12,15 @@ public class CloseCalls : MonoBehaviour
     public Transform playerTrans;
     public Meter meter;
     public GameObject nearMissIndicator;
+    public UIManager uIManager;
 
 
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();       // AM: again, probs look into Singleton. Searching the scene is one of the slowest operations you can do in Unity, so you want to avoid it as much as you can!
         meter = FindAnyObjectByType<Meter>();
-        nearMissIndicator.SetActive(false);
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        uIManager = FindAnyObjectByType<UIManager>();
     }
 
     void Update()
@@ -57,9 +58,10 @@ public class CloseCalls : MonoBehaviour
         if(isIn == false)
         {
             //NEAR MISS CODE HERE
-            StartCoroutine(NearMissIndicator());
+            NearMissIndicator();
             Debug.Log("NearMiss!");
             meter.ChangeMeter(meter.nearMiss);
+            uIManager.DisplayParticals();
 
 
 
@@ -79,17 +81,9 @@ public class CloseCalls : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator NearMissIndicator()
+    public void NearMissIndicator()
     {
-        float timer = nearMissTimer;
         nearMissIndicator.transform.position = playerTrans.position; 
-        nearMissIndicator.SetActive(true);
-
-        while (timer > 0)
-        {
-            yield return new WaitForFixedUpdate();
-            timer -= 0.02f;
-        }
-        nearMissIndicator.SetActive(false);
+        nearMissIndicator.GetComponent<ParticleSystem>().Play();
     }
 }

@@ -26,7 +26,6 @@ public class PlayerMotor : MonoBehaviour
 
     public Rigidbody rb;
     public Collider collider;
-
     public float bufferCount;
     public float bufferAmount;
     public Action bufferedAction;
@@ -208,6 +207,10 @@ public class PlayerMotor : MonoBehaviour
         meter = FindAnyObjectByType<Meter>();
         bfosAnim = FindAnyObjectByType<BFOSAnimator>();
         StartCoroutine(bufferCountdown());
+    }
+
+    private void Awake()
+    {
         playerMat.SetColor("_BaseColor", playerColor);
     }
 

@@ -1,19 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Meter : MonoBehaviour
 {
 
-    public GameObject meter;
+    public GameObject meterFg;
     public float meterPercent = 50f;
     public float decay;
     public float rapidDecay;
     public float nearMiss;
     public float parry;
 
-    public Vector3 origin;
-    public Vector3 originScale;
     public GameObject player;
     public Vector3 playerPos;
 
@@ -22,7 +21,6 @@ public class Meter : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        originScale = meter.gameObject.transform.localScale;
         score = 0;
     }
 
@@ -45,8 +43,7 @@ public class Meter : MonoBehaviour
         {
             Debug.Log("Player's score for this level was: " + (1000 - score));
         }
-        meter.gameObject.transform.localScale = new Vector3(originScale.x * (meterPercent / 100) , originScale.y, originScale.z);
-        
+        meterFg.GetComponent<Image>().fillAmount = meterPercent / 100;
     }
 
     public void ChangeMeter(float amount)
