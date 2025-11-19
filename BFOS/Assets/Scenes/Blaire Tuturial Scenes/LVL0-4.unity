@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: abf446d632a9e404e9fc774867e1f5b6, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cd236307c4743a84a8b5ca4158608750, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 408932608482926232, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.4
+      value: 54.570004
       objectReference: {fileID: 0}
     - target: {fileID: 408932608482926232, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1143,7 +1143,7 @@ Transform:
   m_GameObject: {fileID: 1316583036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.2, y: 0, z: 0}
+  m_LocalPosition: {x: -55.2, y: 0, z: 6.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1167,7 +1167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9186011325066661405, guid: c6192f2ff5e21f44f82b4acd13e1871c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.73
+      value: 43.9
       objectReference: {fileID: 0}
     - target: {fileID: 9186011325066661405, guid: c6192f2ff5e21f44f82b4acd13e1871c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1576,7 +1576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9186011325066661405, guid: c6192f2ff5e21f44f82b4acd13e1871c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.73
+      value: 43.9
       objectReference: {fileID: 0}
     - target: {fileID: 9186011325066661405, guid: c6192f2ff5e21f44f82b4acd13e1871c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1700,6 +1700,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 482841952}
     m_Modifications:
+    - target: {fileID: 1388129537961965662, guid: 9a96bc72eb3b12449ac1491b148d3baa, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7722782
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388129537961965662, guid: 9a96bc72eb3b12449ac1491b148d3baa, type: 3}
+      propertyPath: m_Center.y
+      value: 0.07928944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388129537961965662, guid: 9a96bc72eb3b12449ac1491b148d3baa, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2484828613220440755, guid: 9a96bc72eb3b12449ac1491b148d3baa, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
