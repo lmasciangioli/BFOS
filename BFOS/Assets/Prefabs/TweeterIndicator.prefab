@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4748527683687331389}
   - component: {fileID: 6719861534196056311}
   - component: {fileID: 3873632794734189403}
-  - component: {fileID: 3462699867788579616}
+  - component: {fileID: 49097617940693419}
   m_Layer: 0
   m_Name: TweeterIndicator
-  m_TagString: Untagged
+  m_TagString: Indicator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3462699867788579616
+--- !u!135 &49097617940693419
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

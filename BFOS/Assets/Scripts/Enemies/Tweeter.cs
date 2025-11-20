@@ -18,9 +18,11 @@ public class Tweeter : MonoBehaviour
     public int targetWPs;
     public GameObject wpObjects;
     public LineRenderer lr;
+    public float lazerChargeTime;
+    public int wayPointTracker;
     void Start()
     {
-        
+        wayPointTracker = 1;
         if (lazer == true)
         {
             StartCoroutine(ImmaFiringMahLazor());
@@ -33,6 +35,22 @@ public class Tweeter : MonoBehaviour
             facingOffset = -facingOffset;
         }
     }
+    private void Update()
+    {
+        Debug.Log(wayPointTracker);
+        if (wayPointTracker == targetWPs) 
+        {
+            StopCoroutine(Shoot());
+            wayPointTracker = 1;
+
+            foreach (var gameObj in GameObject.FindGameObjectsWithTag("Indicator"))
+            {
+               Destroy(gameObj);
+            }
+
+            StartCoroutine(ImmaFiringMahLazor());
+        }
+    }
 
     IEnumerator Wander()
     {
@@ -42,44 +60,57 @@ public class Tweeter : MonoBehaviour
     IEnumerator Shoot()
     {
         GameObject shot = Instantiate(bird);
-        shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y + (tweeter.height / 2), 6.6f);
-        //shot.transform.lossyScale = new Vector3(1, 1, 1);
-        Projectile proj = shot.GetComponent<Projectile>();
-        proj.facing = facing;
-        proj.Homing(homing);
-        
 
+        if (lazer == false)
+        {
+            shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y + (tweeter.height / 2), 6.6f);
+            //shot.transform.lossyScale = new Vector3(1, 1, 1);
+            Projectile proj = shot.GetComponent<Projectile>();
+            proj.facing = facing;
+            proj.Homing(homing);
+        }
+        else if (lazer == true)
+        {
+            if (wayPointTracker == 1)
+            {
+                shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y + (tweeter.height / 2), 6.6f);
+            }
+            else
+            {
+                shot.transform.position = usableWayPoints[wayPointTracker - 1].position;
+            }
+            Projectile proj = shot.GetComponent<Projectile>();
+            proj.Lazer(usableWayPoints);
+            StartCoroutine(Wander());
+            yield return null;
+        }
 
-        yield return new WaitForSecondsRealtime(projectileInterval);
-        StartCoroutine(Wander());
     }
-
     IEnumerator ImmaFiringMahLazor()
     {
+
         usableWayPoints.Clear();
+        usableWayPoints.Add(this.transform);
         usableWayPoints.AddRange(tweetWayPoints);
         while (usableWayPoints.Count > targetWPs)
         {
-            usableWayPoints.Remove(usableWayPoints[Random.Range(0, usableWayPoints.Count)]);
+            usableWayPoints.Remove(usableWayPoints[Random.Range(1, usableWayPoints.Count)]);
         }
 
-        if(usableWayPoints.Count != 0)
+        if (usableWayPoints.Count != 0)
         {
             List<Vector3> temp = new List<Vector3>();
-            
+
             lr.positionCount = targetWPs;
             for (int i = targetWPs; i > 0; i--)
             {
-                Instantiate(wpObjects).transform.position = usableWayPoints[i- 1].position;
+                Instantiate(wpObjects).transform.position = usableWayPoints[i - 1].position;
                 temp.Add(usableWayPoints[i - 1].position);
-                
-                
             }
             lr.SetPositions(temp.ToArray());
         }
 
-
-
         yield return null;
+
     }
 }
