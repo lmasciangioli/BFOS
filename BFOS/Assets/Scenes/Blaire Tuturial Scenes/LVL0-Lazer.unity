@@ -1203,8 +1203,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5486016138983017860, guid: 8328790025662b74cb69e2676c1f7fd4, type: 3}
     - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
+      propertyPath: lazerSpeed
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
+      propertyPath: lazerFireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
       propertyPath: lazerChargeTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
       propertyPath: projectileInterval

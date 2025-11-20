@@ -53,9 +53,10 @@ public class Projectile : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Indicator") == true && other.transform.position != lazerList[tweeter.wayPointTracker - 1].position)
         {
-            if (tweeter.wayPointTracker != (tweeter.targetWPs))
+            if (tweeter.wayPointTracker != tweeter.targetWPs)
             {
                 tweeter.wayPointTracker++;
+                tweeter.canContinue = true;
             }
             Destroy(gameObject);
         }
