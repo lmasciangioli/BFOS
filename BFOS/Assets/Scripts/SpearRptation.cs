@@ -1,10 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
-=======
-using static UnityEngine.GraphicsBuffer;
->>>>>>> 383b840 (spears and spear rotation in 1-3 'prince the goat frfr')
 
 public class SpearRptation : MonoBehaviour
 {
@@ -18,10 +14,6 @@ public class SpearRptation : MonoBehaviour
     private void Start()
     {
         move = false;
-<<<<<<< HEAD
-=======
-
->>>>>>> 383b840 (spears and spear rotation in 1-3 'prince the goat frfr')
     }
     private void Update()
     {
@@ -32,20 +24,6 @@ public class SpearRptation : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
             Debug.Log(transform.rotation);
-<<<<<<< HEAD
-=======
-
-            //if (transform.position == targetPosition.position)
-            //{
-            //    move = false;
-            //    moveTimer = retractDelay;
-            //}
-        }
-        else
-        {
-            //transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
-
->>>>>>> 383b840 (spears and spear rotation in 1-3 'prince the goat frfr')
         }
     }
 }
