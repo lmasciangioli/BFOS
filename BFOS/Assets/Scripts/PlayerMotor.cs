@@ -21,6 +21,7 @@ public class PlayerMotor : MonoBehaviour
     public bool canParry;
     public bool canJump;
     public bool parrying;
+    public bool dashing;
 
     public Vector3 velocity;
 
@@ -119,12 +120,11 @@ public class PlayerMotor : MonoBehaviour
                     {
                         Slide();
                     }
-                   
+
                 }
-               
+
             }
         }
-        
     }
 
     void Slide()
@@ -158,6 +158,20 @@ public class PlayerMotor : MonoBehaviour
         {
             bufferedAction = parry;
             bufferCount = bufferAmount;
+        }
+
+        if (dashing == false && Input.GetAxis("Horizontal") == 0)
+        {
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
+        }
+        else if (parrying == true)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
         }
     }
 
@@ -412,6 +426,7 @@ public class PlayerMotor : MonoBehaviour
         isActioning = true;
         isStunned = true;
         wallJumping = false;
+        dashing = true;
         PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.dash;
         float vert = Input.GetAxisRaw("Vertical");
         float horiz;
@@ -434,6 +449,7 @@ public class PlayerMotor : MonoBehaviour
         rb.velocity = dashDirection * 5;
         isActioning = false;
         isStunned = false;
+        dashing = false;
         
     }
      
