@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6589193459697961451, guid: bd644ec30a07f7e4e9148235b5385b17, type: 3}
       propertyPath: queuedScene
-      value: level 1-3
+      value: level 1-2
       objectReference: {fileID: 0}
     - target: {fileID: 7650900395983714947, guid: bd644ec30a07f7e4e9148235b5385b17, type: 3}
       propertyPath: m_AnchoredPosition.y
