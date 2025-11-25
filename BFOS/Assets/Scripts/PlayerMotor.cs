@@ -144,7 +144,7 @@ public class PlayerMotor : MonoBehaviour
             bufferCount = bufferAmount;
             StartCoroutine(JumpBuffer());
         }
-        else if (Input.GetKeyDown("left shift"))
+        else if (Input.GetButtonDown("Dash"))
         {
             bufferedAction = dash;
             bufferCount = bufferAmount;
