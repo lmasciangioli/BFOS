@@ -8,8 +8,8 @@ public class AreaDetector : MonoBehaviour
     public float timeLimit = 6f;
     private float currentTime;
     private bool timerActive = false;
-    public MeshRenderer warning1;
-    public MeshRenderer warning2;
+    public GameObject warning1;
+    public GameObject warning2;
     public Spears spearsScript;
     public SpearRptation SpearRptation;
 
@@ -18,41 +18,58 @@ public class AreaDetector : MonoBehaviour
 
     private void Start()
     {
-        warning1.enabled = false;
-        warning2.enabled = false;
+        warning1.SetActive(false);
+        warning2.SetActive(false);
 
     }
     void Update()
     {
-        currentTime -= Time.deltaTime;
-        if (currentTime <= 3)
+        
+        if (timerActive)
         {
-            warning1.enabled = true;
-            warning2.enabled = true;
-            Debug.Log("3");
-        }
-        else
-        {
-            timerActive = false;
-            Debug.Log("0");
-            warning1.enabled = false;
-            warning2.enabled = false;
-            if (isMiddleSpears == true)
+            currentTime -= Time.deltaTime;
+            if (currentTime <= 3)
             {
-                SpearRptation.move = true;
+                warning1.SetActive(true);
+                warning2.SetActive(true);
+                Debug.Log("3");
+                
             }
-            else
-            {
-                spearsScript.move = true;
-            }
-            if (CompareTag("Player"))
+            if (currentTime <= 0)
             {
                 timerActive = false;
-                warning1.enabled = false;
-                warning2.enabled = false;
-                Debug.Log("exit");
+                Debug.Log("0");
+                warning1.SetActive(false);
+                warning2.SetActive(false);
+                if (isMiddleSpears == true)
+                {
+                    SpearRptation.move = true;
+                }
+                else
+                {
+                    spearsScript.move = true;
+                }
+                
             }
         }
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            currentTime = timeLimit;
+            timerActive = true;
+            Debug.Log("enter");
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            timerActive = false;
+            warning1.SetActive(false);
+            warning2.SetActive(false);
+            Debug.Log("exit");
+        }
+    }
 }
-   

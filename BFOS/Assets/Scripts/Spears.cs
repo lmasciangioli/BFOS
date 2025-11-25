@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spears : MonoBehaviour
 {
+    public float moveDistance = 5f;
     public float moveSpeed = 10f;
     public float retractDelay = 1f;
     public bool move = true;
@@ -14,10 +15,39 @@ public class Spears : MonoBehaviour
     {
         move = false;
         startPosition = transform.position;
-
     }
     private void Update()
     {
+        //if (move)
+        //{
+        //    transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+        //    Debug.Log("Getting called Now");
+        //    if (transform.position == targetPosition)
+        //    {
+        //        move = false;
+        //        moveTimer = retractDelay;
+        //    }
+        //}
+        //else
+        //{
+        //    if (moveTimer > 0)
+        //    {
+        //        moveTimer -= Time.deltaTime;
+        //    }
+        //    else
+        //    {
+        //      transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
+
+        //      if (transform.position == startPosition)
+        //      {
+        //            move = true;
+        //      }
+        //    }
+        //}
+
+
+
         if (move)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition.position, moveSpeed * Time.deltaTime);
@@ -27,11 +57,24 @@ public class Spears : MonoBehaviour
                 move = false;
                 moveTimer = retractDelay;
             }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
 
-            }
+            //if (moveTimer > 0)
+            //{
+            //    moveTimer -= Time.deltaTime;
+            //}
+            //else
+            //{
+            //    transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
+
+            //    if (transform.position == startPosition)
+            //    {
+            //        move = true;
+            //    }
+            //}
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class SpearRptation : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SpearRptation : MonoBehaviour
     private void Start()
     {
         move = false;
+
     }
     private void Update()
     {
@@ -24,6 +26,17 @@ public class SpearRptation : MonoBehaviour
 
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * smooth);
             Debug.Log(transform.rotation);
+
+            //if (transform.position == targetPosition.position)
+            //{
+            //    move = false;
+            //    moveTimer = retractDelay;
+            //}
+        }
+        else
+        {
+            //transform.position = Vector3.MoveTowards(transform.position, startPosition, moveSpeed * Time.deltaTime);
+
         }
     }
 }
