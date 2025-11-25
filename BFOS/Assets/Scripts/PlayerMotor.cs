@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
@@ -57,27 +58,35 @@ public class PlayerMotor : MonoBehaviour
     public BFOSAnimator bfosAnim;
 
     
-    public AudioClip RunSFX;
+    public AudioClip slap;
+    public AudioClip dashie;
     #endregion
 
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            AudioSource.PlayClipAtPoint(slap, transform.position);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            AudioSource.PlayClipAtPoint(dashie, transform.position);
+        }
+        /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
+         * it should be sign that your structure isn't right.
+         * 
+         * eg. you could try something like
+         *   float horiz = Input.GetAxis("Horizontal");
+         *   facing = horiz < 0 ? Direction.Left : Direction.Right;
+         *   if (isStunned == false)
+         *   {
+         *      // your other movement code here.
+         *   }
+         * 
+         * */
 
-            /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
-             * it should be sign that your structure isn't right.
-             * 
-             * eg. you could try something like
-             *   float horiz = Input.GetAxis("Horizontal");
-             *   facing = horiz < 0 ? Direction.Left : Direction.Right;
-             *   if (isStunned == false)
-             *   {
-             *      // your other movement code here.
-             *   }
-             * 
-             * */
-
-            rb.useGravity = true;
+        rb.useGravity = true;
 
             //float horiz = Input.GetAxis("Horizontal");
             //facing = horiz < 0 ? Direction.Left : Direction.Right;
@@ -164,14 +173,14 @@ public class PlayerMotor : MonoBehaviour
         {
             bufferedAction = parry;
             bufferCount = bufferAmount;
+            
+
         }
 
         if (dashing == false && Input.GetAxis("Horizontal") == 0)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
-            AudioSource sound = gameObject.GetComponent<AudioSource>();
-            sound.PlayOneShot(RunSFX);
         }
         else if (parrying == true)
         {

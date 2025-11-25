@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Goomba : MonoBehaviour
@@ -8,6 +9,10 @@ public class Goomba : MonoBehaviour
     public int waypointIndex;
     public float speed;
     public GameObject thisEnemy;
+
+
+
+
     void Start()
     {
         thisEnemy.transform.position = waypoints[waypointIndex].transform.position;
@@ -16,6 +21,8 @@ public class Goomba : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+  
+
         if (waypointIndex <= waypoints.Length - 1)
         {
             thisEnemy.transform.position = Vector3.MoveTowards(thisEnemy.transform.position, waypoints[waypointIndex].transform.position, speed * Time.deltaTime);

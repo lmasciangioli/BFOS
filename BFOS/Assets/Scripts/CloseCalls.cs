@@ -13,6 +13,7 @@ public class CloseCalls : MonoBehaviour
     public GameObject nearMissIndicator;
     public UIManager uIManager;
 
+    public AudioClip gain;
 
     void Start()
     {
@@ -62,6 +63,7 @@ public class CloseCalls : MonoBehaviour
             meter.ChangeMeter(meter.nearMiss);
             uIManager.DisplayParticals();
 
+            AudioSource.PlayClipAtPoint(gain, transform.position);
 
 
 

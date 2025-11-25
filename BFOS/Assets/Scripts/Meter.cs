@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static PlayerMotor;
 
 public class Meter : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class Meter : MonoBehaviour
     public GameObject player;
     public Vector3 playerPos;
 
-    public float score = 0; 
+    public float score = 0;
+
+    public AudioClip swing;
+    public AudioSource swingReady;
 
     void Start()
     {
@@ -30,11 +34,13 @@ public class Meter : MonoBehaviour
         {
             if (player.transform.position == playerPos && player.GetComponent<PlayerMotor>().parrying == false)
             {
-                ChangeMeter(-rapidDecay); 
+                ChangeMeter(-rapidDecay);
+
             }
             else
             {
                 ChangeMeter(-decay);
+
             }
             playerPos = player.transform.position;
             score += 0.1f;
@@ -52,6 +58,7 @@ public class Meter : MonoBehaviour
         if(meterPercent > 100)
         {
             meterPercent = 100f;
+            swingReady.PlayOneShot(swing);
         }
         else if(meterPercent < 0 )
         {
