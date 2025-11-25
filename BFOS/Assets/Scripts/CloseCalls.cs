@@ -82,6 +82,7 @@ public class CloseCalls : MonoBehaviour
     }
     public void NearMissIndicator()
     {
+        nearMissIndicator.transform.SetParent(null);
         nearMissIndicator.transform.position = playerTrans.position; 
         nearMissIndicator.GetComponent<ParticleSystem>().Play();
     }
