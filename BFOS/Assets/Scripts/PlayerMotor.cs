@@ -63,11 +63,6 @@ public class PlayerMotor : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetButton("D") || (Input.GetButtonDown("A")))
-        {
-            AudioSource.PlayClipAtPoint(RunSFX, transform.position);
-           
-        }
 
             /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
              * it should be sign that your structure isn't right.
@@ -175,6 +170,8 @@ public class PlayerMotor : MonoBehaviour
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
+            AudioSource sound = gameObject.GetComponent<AudioSource>();
+            sound.PlayOneShot(RunSFX);
         }
         else if (parrying == true)
         {
@@ -271,8 +268,9 @@ public class PlayerMotor : MonoBehaviour
 
                 PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.run;
                 motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
-                //motor.animator.SetFloat("Velocity", motor.velocity.x);
                 
+                //motor.animator.SetFloat("Velocity", motor.velocity.x);
+
 
             }
 
