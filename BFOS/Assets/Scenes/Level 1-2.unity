@@ -630,6 +630,10 @@ PrefabInstance:
       value: Tweeter (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
+      propertyPath: facing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
       propertyPath: homing
       value: 0
       objectReference: {fileID: 0}
@@ -1673,6 +1677,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3619511514110377171, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
+      propertyPath: RunSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: d6bb52e06f1ab6042a057bffbed80faf, type: 3}
+    - target: {fileID: 3619511514110377171, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
+      propertyPath: Jumpies
+      value: 
+      objectReference: {fileID: 8300000, guid: 246e270ddf2d9fc4fa163de333c94d97, type: 3}
+    - target: {fileID: 3619511514110377171, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
+      propertyPath: wallSlide
+      value: 
+      objectReference: {fileID: 8300000, guid: 07f7812e647e34d438f3890ea357fdfc, type: 3}
+    - target: {fileID: 3850787725007591928, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5615824792207549746, guid: f28140d2c82854641a69bab9bc255350, type: 3}
       propertyPath: bfosAnim
       value: 
@@ -2231,26 +2251,6 @@ PrefabInstance:
     - target: {fileID: 6199465365616696716, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
       propertyPath: m_Name
       value: Tweeter (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
-      propertyPath: facing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
-      propertyPath: homing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
-      propertyPath: targetWPs
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
-      propertyPath: projectileInterval
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7572054650390459111, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
-      propertyPath: projectileStartDelay
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

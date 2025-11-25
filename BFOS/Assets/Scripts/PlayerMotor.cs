@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
@@ -55,83 +56,93 @@ public class PlayerMotor : MonoBehaviour
     public Meter meter;
     public BFOSAnimator bfosAnim;
 
-
+    
+    public AudioClip RunSFX;
     #endregion
 
 
     void FixedUpdate()
     {
-
-        /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
-         * it should be sign that your structure isn't right.
-         * 
-         * eg. you could try something like
-         *   float horiz = Input.GetAxis("Horizontal");
-         *   facing = horiz < 0 ? Direction.Left : Direction.Right;
-         *   if (isStunned == false)
-         *   {
-         *      // your other movement code here.
-         *   }
-         * 
-         * */
-
-        rb.useGravity = true;
-
-        //float horiz = Input.GetAxis("Horizontal");
-        //facing = horiz < 0 ? Direction.Left : Direction.Right;
-
-
-        if (Input.GetAxis("Horizontal") > 0)
+        if (Input.GetButton("D") || (Input.GetButtonDown("A")))
         {
-            facing = Direction.Right;
-            if (isWallLeft == false)
+            AudioSource.PlayClipAtPoint(RunSFX, transform.position);
+           
+        }
+
+            /* AM: Generally when you see code like this, where it's double-handling code paths with very slight differences...
+             * it should be sign that your structure isn't right.
+             * 
+             * eg. you could try something like
+             *   float horiz = Input.GetAxis("Horizontal");
+             *   facing = horiz < 0 ? Direction.Left : Direction.Right;
+             *   if (isStunned == false)
+             *   {
+             *      // your other movement code here.
+             *   }
+             * 
+             * */
+
+            rb.useGravity = true;
+
+            //float horiz = Input.GetAxis("Horizontal");
+            //facing = horiz < 0 ? Direction.Left : Direction.Right;
+
+
+            if (Input.GetAxis("Horizontal") > 0)
             {
-                if (isStunned == false && wallJumping == false)
+                facing = Direction.Right;
+                if (isWallLeft == false)
                 {
-                    walk.Use();
-                }
-            }
-            else
-            {
-                if (isGrounded == false)
-                {
-                    if (isStunned == false && jumpTimed == false && wallJumping == false)
+                    if (isStunned == false && wallJumping == false)
                     {
-                        Slide();
+                        walk.Use();
+                    }
+                }
+                else
+                {
+                    if (isGrounded == false)
+                    {
+                        if (isStunned == false && jumpTimed == false && wallJumping == false)
+                        {
+                            Slide();
+                        }
                     }
                 }
             }
-        }
-        else if (Input.GetAxis("Horizontal") < 0)
-        {
-            facing = Direction.Left;
-            if (isWallRight == false)
+            else if (Input.GetAxis("Horizontal") < 0)
             {
-                if (isStunned == false && wallJumping == false)
+                facing = Direction.Left;
+                if (isWallRight == false)
                 {
-                    walk.Use();
-                }
-            }
-            else
-            {
-                if (isGrounded == false)
-                {
-                    if (isStunned == false && jumpTimed == false && wallJumping == false)
+                    if (isStunned == false && wallJumping == false)
                     {
-                        Slide();
+                        walk.Use();
+
+                    }
+                }
+                else
+                {
+                    if (isGrounded == false)
+                    {
+                        if (isStunned == false && jumpTimed == false && wallJumping == false)
+                        {
+                            Slide();
+                        }
+
                     }
 
                 }
-
             }
-        }
-    }
+        
 
-    void Slide()
-    {
-        rb.useGravity = false;
-        rb.velocity = new Vector3(rb.velocity.x, -10, 0);
-        Debug.Log("slidin");
+        void Slide()
+        {
+            rb.useGravity = false;
+            rb.velocity = new Vector3(rb.velocity.x, -10, 0);
+
+            Debug.Log("slidin");
+
+        }
     }
 
     public KeyCode jumpy;
@@ -257,12 +268,15 @@ public class PlayerMotor : MonoBehaviour
             }
             else
             {
+
                 PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.run;
                 motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
                 //motor.animator.SetFloat("Velocity", motor.velocity.x);
+                
+
             }
 
-            
+
             return true;
 
         }

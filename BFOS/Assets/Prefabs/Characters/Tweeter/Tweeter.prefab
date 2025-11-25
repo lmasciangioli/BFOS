@@ -71,11 +71,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bird: {fileID: 1576544535379012913, guid: dbf4234dd014a6445be73cd9a23569ae, type: 3}
   tweeter: {fileID: 0}
-  facing: 0
+  facing: 1
   facingOffset: 0
   homing: 1
-  projectileStartDelay: 0
-  projectileInterval: 0
+  projectileStartDelay: 3
+  projectileInterval: 3
+  tweetWayPoints: []
+  usableWayPoints: []
+  lazer: 0
+  targetWPs: 0
+  wpObjects: {fileID: 0}
+  lr: {fileID: 0}
+  lazerChargeTime: 0
+  lazerFireRate: 0
+  wayPointTracker: 0
+  canContinue: 0
+  windup: {fileID: 8300000, guid: 0dc2f69853e147349b309365e2963023, type: 3}
+  Throw: {fileID: 8300000, guid: ed7cca5a2c1c24e419f9f1be53b78842, type: 3}
 --- !u!1001 &2405673964754385946
 PrefabInstance:
   m_ObjectHideFlags: 0

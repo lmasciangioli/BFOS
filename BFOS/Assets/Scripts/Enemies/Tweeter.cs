@@ -22,6 +22,9 @@ public class Tweeter : MonoBehaviour
     public float lazerFireRate;
     public int wayPointTracker;
     public bool canContinue;
+    public AudioClip windup;
+    public AudioClip Throw;
+
     void Start()
     {
         canContinue = false;
@@ -76,6 +79,7 @@ public class Tweeter : MonoBehaviour
 
         if (lazer == false)
         {
+            AudioSource.PlayClipAtPoint(Throw,transform.position);
             shot.transform.position = new Vector3(facingOffset + transform.position.x, transform.position.y + (tweeter.height / 2), 6.6f);
             //shot.transform.lossyScale = new Vector3(1, 1, 1);
             Projectile proj = shot.GetComponent<Projectile>();
