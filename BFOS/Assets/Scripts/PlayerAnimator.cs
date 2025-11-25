@@ -37,7 +37,7 @@ public class PlayerAnimator : MonoBehaviour
 
     void Start()
     {
-        currentAnimation = animator.name;
+        //currentAnimation = animator.name;
     }
 
     

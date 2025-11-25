@@ -124,6 +124,7 @@ MonoBehaviour:
     motor: {fileID: 3619511514110377171}
   playerColor: {r: 1, g: 1, b: 1, a: 0}
   playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
+  animator: {fileID: 0}
   facing: 0
   meter: {fileID: 0}
   bfosAnim: {fileID: 0}
@@ -210,8 +211,8 @@ Transform:
   m_GameObject: {fileID: 4817987461774622931}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2878194, y: 4.403689, z: 2.0695}
+  m_LocalPosition: {x: 0, y: 0.77, z: 0}
+  m_LocalScale: {x: 2.2878194, y: 6.0736504, z: 2.0695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 408932608482926232}
@@ -353,8 +354,8 @@ Transform:
   m_GameObject: {fileID: 6137377327868002071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.2878194, y: 4.403689, z: 2.0695}
+  m_LocalPosition: {x: 0, y: 0.77, z: 0}
+  m_LocalScale: {x: 2.2878194, y: 6.0736504, z: 2.0695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 408932608482926232}
@@ -422,7 +423,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2.166615, z: 0}
-  m_LocalScale: {x: 2.5071993, y: 4.403689, z: 2.0695}
+  m_LocalScale: {x: 1.6610196, y: 4.403689, z: 2.0695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 408932608482926232}

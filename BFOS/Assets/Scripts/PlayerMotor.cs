@@ -131,7 +131,7 @@ public class PlayerMotor : MonoBehaviour
     {
         rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, -10, 0);
-        //Debug.Log("slidin");
+        Debug.Log("slidin");
     }
 
     public KeyCode jumpy;
@@ -245,7 +245,7 @@ public class PlayerMotor : MonoBehaviour
             {
                 PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.run;
                 motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
-                motor.animator.SetFloat("Velocity", motor.velocity.x);
+                //motor.animator.SetFloat("Velocity", motor.velocity.x);
             }
 
             
