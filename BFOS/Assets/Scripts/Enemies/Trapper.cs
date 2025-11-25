@@ -34,7 +34,7 @@ public class Trapper : MonoBehaviour
     }
     IEnumerator Trap()
     {
-        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 2, 6.6f);
+        Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 5, 6.6f);
 
 
         GameObject newTrap = Instantiate(trap, pos, Quaternion.Euler(0,0,0));
