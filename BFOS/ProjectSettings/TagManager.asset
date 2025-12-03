@@ -11,6 +11,7 @@ TagManager:
   - Projectile
   - Trap
   - Indicator
+  - Deathbox
   layers:
   - Default
   - TransparentFX

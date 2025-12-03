@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: LVL0-3
+  changeSceneOnClear: 0
 --- !u!4 &282149514
 Transform:
   m_ObjectHideFlags: 0
@@ -950,6 +951,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Size.x
+      value: 0.10908588
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0524716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0000000047683715
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Center.y
+      value: -0.25123602
+      objectReference: {fileID: 0}
     - target: {fileID: 4851010188159854728, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
       propertyPath: m_Name
       value: Mini wall (1)
@@ -1007,6 +1024,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4851010188159854728, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
       propertyPath: m_Name
       value: Mini wall (5)
@@ -1580,6 +1601,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4851010188159854728, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
       propertyPath: m_Name
       value: Mini wall (2)
@@ -1705,6 +1730,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Size.x
+      value: 0.10908588
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4020169
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0000000047683715
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Center.y
+      value: -0.42600897
+      objectReference: {fileID: 0}
     - target: {fileID: 4851010188159854728, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
       propertyPath: m_Name
       value: Mini wall (4)
@@ -2295,6 +2336,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2058777120122046974, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4851010188159854728, guid: 59b59f0f5284f8043b9af6e3b4125917, type: 3}
       propertyPath: m_Name
       value: Mini wall (3)
