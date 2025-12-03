@@ -18,7 +18,6 @@ public class CloseCalls : MonoBehaviour
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();       // AM: again, probs look into Singleton. Searching the scene is one of the slowest operations you can do in Unity, so you want to avoid it as much as you can!
-        meter = FindAnyObjectByType<Meter>();
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
         uIManager = FindAnyObjectByType<UIManager>();
     }
