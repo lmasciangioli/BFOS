@@ -6,15 +6,19 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public Rigidbody player;
-    public float force = 20f;
+    public float force = 20;
+    public Transform gustAim;
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            player = other.GetComponent<Rigidbody>();
-            player.AddForce(transform.forward * force);
+            Rigidbody rb = other.attachedRigidbody;
+            if (rb != null && gustAim != null)
+            {
+                Vector3 direction = gustAim.forward.normalized;
+                rb.AddForce(direction * force, ForceMode.Force);
+            }
         }
     }
 }

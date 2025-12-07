@@ -197,8 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e598fe3d26e73c498d11095b13db942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1802826092}
   force: 20
+  gustAim: {fileID: 281299644}
 --- !u!1 &38416287
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +395,37 @@ PrefabInstance:
       addedObject: {fileID: 905058601}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd644ec30a07f7e4e9148235b5385b17, type: 3}
+--- !u!1 &281299643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281299644}
+  m_Layer: 0
+  m_Name: gust aim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &281299644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281299643}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.24, y: -0.090748586, z: 0}
+  m_LocalScale: {x: 0.2781564, y: 0.11940604, z: 0.2781564}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 514180844}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &282149512
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +586,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 14123706}
+  - {fileID: 281299644}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &591313398
@@ -2144,11 +2176,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1802826092 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3214397742742897436, guid: f4a8751bf8d1c9e47b6343484c7c2ef2, type: 3}
-  m_PrefabInstance: {fileID: 1461777589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1938891281
 GameObject:
   m_ObjectHideFlags: 0
