@@ -12,6 +12,8 @@ public class Tweeter : MonoBehaviour
     public bool homing;
     public float projectileStartDelay;
     public float projectileInterval;
+
+
     public List<Transform> tweetWayPoints;
     public List<Transform> usableWayPoints;
     public bool lazer;
@@ -22,6 +24,9 @@ public class Tweeter : MonoBehaviour
     public float lazerFireRate;
     public int wayPointTracker;
     public bool canContinue;
+
+
+
     public AudioClip windup;
     public AudioClip Throw;
 
@@ -87,7 +92,7 @@ public class Tweeter : MonoBehaviour
             proj.Homing(homing);
             StartCoroutine(Wander());
         }
-        else if (lazer == true)
+        else if (lazer)
         {
             if (wayPointTracker == 1)
             {

@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: LVL0-6
+  changeSceneOnClear: 0
 --- !u!4 &282149514
 Transform:
   m_ObjectHideFlags: 0
@@ -1144,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5877434146286599044, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.6
+      value: 11.88
       objectReference: {fileID: 0}
     - target: {fileID: 5877434146286599044, guid: 9c9161a2eda201c4d837a5b4ff79b473, type: 3}
       propertyPath: m_LocalRotation.w
