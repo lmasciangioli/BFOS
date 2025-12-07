@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1802826092}
-  force: 3000
+  force: 20
 --- !u!1 &38416287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,87 +2521,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4684073460260339178, guid: af134578035b9a9408cfedcebe8174bd, type: 3}
   m_PrefabInstance: {fileID: 4528325760187082245}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6062207296788187086
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2254688943078909809, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: warning1
-      value: 
-      objectReference: {fileID: 926717053}
-    - target: {fileID: 2254688943078909809, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: warning2
-      value: 
-      objectReference: {fileID: 1604473693}
-    - target: {fileID: 3337746051916773607, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: warning1
-      value: 
-      objectReference: {fileID: 1030237361}
-    - target: {fileID: 3337746051916773607, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: warning2
-      value: 
-      objectReference: {fileID: 905058598}
-    - target: {fileID: 5003445921113572965, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: moveSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7238500039091569835, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_Name
-      value: Spears System
-      objectReference: {fileID: 0}
-    - target: {fileID: 7354976837920701954, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: moveSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2346344
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 68.82506
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.8533964
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7926390107346367223, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a5f6e252dcd2b437f8be25cb2f9f7f64, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2626,5 +2545,4 @@ SceneRoots:
   - {fileID: 38416290}
   - {fileID: 1701624317}
   - {fileID: 1132366603}
-  - {fileID: 6062207296788187086}
   - {fileID: 514180844}
