@@ -179,7 +179,7 @@ public class PlayerMotor : MonoBehaviour
         if (dashing == false && Input.GetAxis("Horizontal") == 0)
         {
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
-            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX;
+            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
         }
         else if (parrying == true)
         {
