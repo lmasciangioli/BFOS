@@ -273,8 +273,6 @@ public class PlayerMotor : MonoBehaviour
             }
             else
             {
-
-                PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.run;
                 motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
                 
                 //motor.animator.SetFloat("Velocity", motor.velocity.x);
@@ -298,7 +296,6 @@ public class PlayerMotor : MonoBehaviour
             if (motor.isGrounded && motor.isActioning == false || motor.canJump)
             {
                 motor.isActioning = true;
-                PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.jump;
                 motor.rb.velocity = new Vector3(motor.rb.velocity.x, 0, 0);
                 motor.rb.AddForce(Vector3.up * motor.jumpHeight, ForceMode.Impulse);
                 motor.isActioning = false;
@@ -357,7 +354,6 @@ public class PlayerMotor : MonoBehaviour
         wallJumping = true;
         jumpTimed = true;
         //changed wall jump duration to 6 from 12 - Blaire
-        PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.walljump;
         for (int i = 6; i > 0; --i)
         {
             walk.Use();
@@ -403,7 +399,6 @@ public class PlayerMotor : MonoBehaviour
         canParry = false;
         parrying = true;
         rb.constraints = RigidbodyConstraints.FreezeAll;
-        PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.parry;
 
         for (int i = 12; i > 0; i--)
         {
@@ -447,7 +442,6 @@ public class PlayerMotor : MonoBehaviour
         isStunned = true;
         wallJumping = false;
         dashing = true;
-        PlayerAnimator.playerAnimator.state = PlayerAnimator.PlayerState.dash;
         float vert = Input.GetAxisRaw("Vertical");
         float horiz;
         if (facing == Direction.Left)
