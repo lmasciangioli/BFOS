@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5961350992405898076}
   - component: {fileID: 2584517596895328632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -126,6 +126,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cd4df6aafae907941a59cab7b6d8bda3, type: 3}
       propertyPath: m_Name
       value: Trapper_Unwrapped_Smooth
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd4df6aafae907941a59cab7b6d8bda3, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
