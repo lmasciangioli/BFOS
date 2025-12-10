@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50b3d6b0e5ead475bbc8313ec7e18954
+guid: 024df99599136554eb2df36b42aad1c1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -36,15 +36,15 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 4
-      lastFrame: 18
+      firstFrame: 0
+      lastFrame: 191
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -96,7 +96,7 @@ ModelImporter:
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
