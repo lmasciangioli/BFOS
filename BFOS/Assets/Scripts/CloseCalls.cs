@@ -60,7 +60,11 @@ public class CloseCalls : MonoBehaviour
             NearMissIndicator();
             Debug.Log("NearMiss!");
             meter.ChangeMeter(meter.nearMiss);
-            uIManager.DisplayParticals();
+            if( uIManager != null)
+            {
+                uIManager.DisplayParticals();
+            }
+            
 
             AudioSource.PlayClipAtPoint(gain, transform.position);
 
@@ -72,6 +76,7 @@ public class CloseCalls : MonoBehaviour
             while(timer > 0)
             {
                 yield return new WaitForFixedUpdate();
+                Debug.Log("Waiting...");
                 timer -= 0.02f;
             }
             log.Remove(hit);

@@ -8,9 +8,17 @@ public class Trap : MonoBehaviour
     public bool playIn;
     public bool live;
     public Vector3 position;
+
+    private Meter meterScript;
+
+    public Material playerMat;
+    public Color playerColor;
+
     void Start()
     {
         position = gameObject.transform.position;
+
+        meterScript = FindAnyObjectByType<Meter>();
     }
 
     // Update is called once per frame
@@ -69,13 +77,17 @@ public class Trap : MonoBehaviour
         {
             yield return new WaitForSecondsRealtime(0.01f);
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.GetComponent<PlayerManager>().ResetScene();
+            playerMat.SetColor("_Color", Color.red);
+            Meter.meter.ChangeMeter(-25);
+            meterScript.ActivateDamageSword();
         }
 
         
 
 
         yield return new WaitForSecondsRealtime(0.2f);
+        playerMat.SetColor("_Color", playerColor);
+
         Destroy(gameObject);
     }
 }
