@@ -123,3 +123,6 @@ MonoBehaviour:
   playIn: 0
   live: 0
   position: {x: 0, y: 0, z: 0}
+  meterScript: {fileID: 0}
+  playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
+  playerColor: {r: 1, g: 1, b: 1, a: 0}

@@ -16,16 +16,26 @@ public class Meter : MonoBehaviour
 
     public GameObject player;
     public Vector3 playerPos;
+    public Material playerMat;
+
+    public GameObject damageSword;
 
     public float score = 0;
 
     public AudioClip swing;
     public AudioSource swingReady;
+    public static Meter meter;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+
+        damageSword.SetActive(false);
         score = 0;
+    }
+    public void Awake()
+    {
+        meter = this;
     }
 
     void FixedUpdate()
@@ -66,7 +76,17 @@ public class Meter : MonoBehaviour
         }
     }
 
+    public void ActivateDamageSword()
+    {
+        damageSword.SetActive(true);
+        StartCoroutine(DamageSwordTimer());
+    }
 
+    private IEnumerator DamageSwordTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        damageSword.SetActive(false);
+    }
 
 
 

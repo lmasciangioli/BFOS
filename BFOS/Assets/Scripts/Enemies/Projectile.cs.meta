@@ -3,7 +3,12 @@ guid: db61c45b712f44a0490e10860469e2b6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - player: {instanceID: 0}
+  - tweeter: {instanceID: 0}
+  - meterScript: {instanceID: 0}
+  - playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -16,10 +17,17 @@ public class Projectile : MonoBehaviour
     public GameObject player;
     public Tweeter tweeter;
 
+
+    public Color playerColor;
+    public Material playerMat;
+    public Meter meterScript;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tweeter = GameObject.FindAnyObjectByType<Tweeter>();
+        meterScript = FindAnyObjectByType<Meter>();
+
     }
 
     // Update is called once per frame
@@ -60,13 +68,31 @@ public class Projectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "Player")
+        {
+            playerMat.SetColor("_Color", Color.red);
+            meterScript.ChangeMeter(-25);
+            meterScript.ActivateDamageSword();
+        }
     }
 
-    void OnCollisionEnter(Collision collision)
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player") == false && lazering == false)
+    //    {
+    //        playerMat.SetColor("_Color", Color.red);
+    //        Meter.meter.ChangeMeter(-25);
+    //        meterScript.ActivateDamageSword();
+    //    }
+    //}
+
+    public void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player") == false && lazering == false)
+        if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            playerMat.SetColor("_Color", playerColor);
+
         }
     }
 

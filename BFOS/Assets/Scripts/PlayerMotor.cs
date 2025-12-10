@@ -400,7 +400,7 @@ public class PlayerMotor : MonoBehaviour
 
     IEnumerator ParryCo()
     {
-        playerMat.SetColor("_Color", Color.red);
+        playerMat.SetColor("_Color", Color.green);
         canParry = false;
         parrying = true;
         rb.constraints = RigidbodyConstraints.FreezeAll;
