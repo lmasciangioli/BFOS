@@ -130,8 +130,6 @@ MonoBehaviour:
   facing: 0
   meter: {fileID: 0}
   bfosAnim: {fileID: 0}
-  slap: {fileID: 0}
-  dashie: {fileID: 0}
   jumpy: 0
 --- !u!136 &8662803995243675822
 CapsuleCollider:
@@ -172,9 +170,6 @@ MonoBehaviour:
   playerMotor: {fileID: 3619511514110377171}
   meter: {fileID: 0}
   uiManager: {fileID: 0}
-  meterScript: {fileID: 0}
-  playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &3850787725007591928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ab923085eec499ab8c8bd1ba6f5bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
+  animator: {fileID: 0}
+  currentAnimation: 
+  crossfade: 0.2
 --- !u!1 &4817987461774622931
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +329,6 @@ MonoBehaviour:
   meter: {fileID: 0}
   nearMissIndicator: {fileID: 1495054387375324412}
   uIManager: {fileID: 0}
-  gain: {fileID: 0}
 --- !u!1 &6137377327868002071
 GameObject:
   m_ObjectHideFlags: 0

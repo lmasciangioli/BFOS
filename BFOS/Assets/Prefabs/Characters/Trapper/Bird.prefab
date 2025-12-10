@@ -80,7 +80,8 @@ MonoBehaviour:
   player: {fileID: 0}
   tweeter: {fileID: 0}
   playerColor: {r: 1, g: 1, b: 1, a: 0}
-  playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
+  playerMat: {fileID: 0}
+  meterScript: {fileID: 0}
 --- !u!54 &2073423728172556507
 Rigidbody:
   m_ObjectHideFlags: 0
