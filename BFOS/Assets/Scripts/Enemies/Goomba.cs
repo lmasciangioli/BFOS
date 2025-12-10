@@ -9,9 +9,11 @@ public class Goomba : MonoBehaviour
     public int waypointIndex;
     public float speed;
     public GameObject thisEnemy;
+    
+    public Meter meterScript;
 
-
-
+    public Material playerMat;
+    public Color playerColor;
 
     void Start()
     {
@@ -38,13 +40,27 @@ public class Goomba : MonoBehaviour
             waypointIndex = 0;
         }
     }
+    private void Awake()
+    {
+        playerMat.SetColor("_BaseColor", playerColor);
+    }
 
-
-    public void OnTriggerStay(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            GameObject.FindObjectOfType<PlayerManager>().ResetScene();
+            playerMat.SetColor("_Color", Color.red);
+            meterScript.ChangeMeter(-25);
+            meterScript.ActivateDamageSword();
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            playerMat.SetColor("_Color", playerColor);
+
         }
     }
 
