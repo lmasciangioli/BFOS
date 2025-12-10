@@ -40,7 +40,7 @@ public class Tweeter : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Wander());
+            StartCoroutine(Wander(projectileStartDelay));
         }
         tweeter = this.GetComponent<CapsuleCollider>();
         facingOffset = 5;
@@ -73,9 +73,9 @@ public class Tweeter : MonoBehaviour
         }
     }
 
-    IEnumerator Wander()
+    IEnumerator Wander(float delay)
     {
-        yield return new WaitForSecondsRealtime(projectileStartDelay);
+        yield return new WaitForSecondsRealtime(delay);
         StartCoroutine(Shoot());
     }
     IEnumerator Shoot()
@@ -90,7 +90,7 @@ public class Tweeter : MonoBehaviour
             Projectile proj = shot.GetComponent<Projectile>();
             proj.facing = facing;
             proj.Homing(homing);
-            StartCoroutine(Wander());
+            StartCoroutine(Wander(projectileInterval));
         }
         else if (lazer)
         {
