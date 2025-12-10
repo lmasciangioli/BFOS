@@ -51,7 +51,7 @@ public class Tweeter : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(wayPointTracker);
+        //Debug.Log(wayPointTracker);
         if (wayPointTracker == targetWPs) 
         {
             wayPointTracker = 1;
@@ -75,7 +75,12 @@ public class Tweeter : MonoBehaviour
 
     IEnumerator Wander()
     {
+
         yield return new WaitForSecondsRealtime(projectileStartDelay);
+        while (Time.timeScale == 0) 
+        {
+            yield return new WaitForFixedUpdate();
+        }
         StartCoroutine(Shoot());
     }
     IEnumerator Shoot()
