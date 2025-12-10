@@ -20,13 +20,12 @@ public class Projectile : MonoBehaviour
 
     public Color playerColor;
     public Material playerMat;
-    public Meter meterScript;
+
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tweeter = GameObject.FindAnyObjectByType<Tweeter>();
-        meterScript = FindAnyObjectByType<Meter>();
 
     }
 
@@ -57,9 +56,9 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter (Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Indicator") == true && other.transform.position != lazerList[tweeter.wayPointTracker - 1].position)
+        if (other.gameObject.CompareTag("Indicator") == true && other.transform.position != lazerList[tweeter.wayPointTracker - 1].position)
         {
             if (tweeter.wayPointTracker != tweeter.targetWPs)
             {
@@ -68,30 +67,23 @@ public class Projectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
-
-        if (other.gameObject.tag == "Player")
-        {
-            playerMat.SetColor("_Color", Color.red);
-            meterScript.ChangeMeter(-25);
-            meterScript.ActivateDamageSword();
-        }
     }
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player") == false && lazering == false)
-    //    {
-    //        playerMat.SetColor("_Color", Color.red);
-    //        Meter.meter.ChangeMeter(-25);
-    //        meterScript.ActivateDamageSword();
-    //    }
-    //}
-
-    public void OnTriggerExit(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player") == false && lazering == false)
         {
-            playerMat.SetColor("_Color", playerColor);
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            Meter.meter.ChangeMeter(-25);
+            Meter.meter.ActivateDamageSword();
+             
+            playerMat.SetColor("_Color", Color.red);
+
+            player.GetComponent<PlayerManager>().StartRedTime();
 
         }
     }

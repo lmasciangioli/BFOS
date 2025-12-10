@@ -8,6 +8,12 @@ public class PlayerManager : MonoBehaviour
     public PlayerMotor playerMotor;
     public Meter meter;
     public UIManager uiManager;
+    public Meter meterScript;
+
+    public Material playerMat;
+    public Color playerColor;
+
+
     void Start()
     {
         meter = FindAnyObjectByType<Meter>();
@@ -42,7 +48,8 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                ResetScene();
+                Meter.meter.ChangeMeter(-25);
+                Meter.meter.ActivateDamageSword();
             }
         }
     }
@@ -65,11 +72,20 @@ public class PlayerManager : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<Trap>().live == true)
             {
-                ResetScene();
+                meterScript.ChangeMeter(-25);
+                meterScript.ActivateDamageSword();
             }
         }
     }
-
+    public void StartRedTime()
+    {
+        StartCoroutine(redTime());
+    }
+    public IEnumerator redTime()
+    {
+        yield return new WaitForSeconds(0.25f);
+        playerMat.SetColor("_Color", playerColor);
+    }
 
     public void ResetScene()
     {
