@@ -23,7 +23,6 @@ public class PlayerMotor : MonoBehaviour
     public bool canJump;
     public bool parrying;
     public bool dashing;
-    public bool isWalking;
 
     public Vector3 velocity;
 
@@ -45,6 +44,8 @@ public class PlayerMotor : MonoBehaviour
 
     public Color playerColor;
     public Material playerMat;
+
+    public Animator animator;
     public enum Direction
     {
         Left,
@@ -97,13 +98,11 @@ public class PlayerMotor : MonoBehaviour
                 {
                     if (isStunned == false && wallJumping == false)
                     {
-                        isWalking = true;
                         walk.Use();
                     }
                 }
                 else
                 {
-                    isWalking = false;
                     if (isGrounded == false)
                     {
                         if (isStunned == false && jumpTimed == false && wallJumping == false)
@@ -120,14 +119,12 @@ public class PlayerMotor : MonoBehaviour
                 {
                     if (isStunned == false && wallJumping == false)
                     {
-                        isWalking = true;
                         walk.Use();
 
                     }
                 }
                 else
                 {
-                    isWalking = false;
                     if (isGrounded == false)
                     {
                         if (isStunned == false && jumpTimed == false && wallJumping == false)
@@ -139,11 +136,6 @@ public class PlayerMotor : MonoBehaviour
 
                 }
             }
-        else
-        {
-            isWalking = false;
-        }
-
         
 
         void Slide()
@@ -282,6 +274,9 @@ public class PlayerMotor : MonoBehaviour
             else
             {
                 motor.rb.velocity = new Vector3((Input.GetAxis("Horizontal") * motor.speed), motor.rb.velocity.y, 0);
+                
+                //motor.animator.SetFloat("Velocity", motor.velocity.x);
+
 
             }
 
