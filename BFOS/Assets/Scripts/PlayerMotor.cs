@@ -55,13 +55,32 @@ public class PlayerMotor : MonoBehaviour
     public Meter meter;
     public BFOSAnimator bfosAnim;
 
-    
+    bool isMovingGround = false;
+    AudioSource runMC;
     public AudioClip slap;
     public AudioClip dashie;
     #endregion
 
 
-    void FixedUpdate()
+
+    void runsfx()
+    {
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            isMovingGround = true;
+            if (isMovingGround)
+            {
+                if (!runMC.isPlaying)
+                {
+                    runMC.Play(0);
+                }
+                else
+                    runMC.Stop();
+            }
+        }
+    }
+
+        void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
@@ -160,6 +179,11 @@ public class PlayerMotor : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            runsfx();
+        }
+    
         if (Input.GetButtonDown("Jump"))
         {
             bufferedAction = jump;
@@ -245,6 +269,7 @@ public class PlayerMotor : MonoBehaviour
         meter = FindAnyObjectByType<Meter>();
         bfosAnim = FindAnyObjectByType<BFOSAnimator>();
         StartCoroutine(bufferCountdown());
+        runMC = gameObject.GetComponent<AudioSource>();
     }
 
     private void Awake()
