@@ -15,6 +15,9 @@ public class Goomba : MonoBehaviour
     public Material playerMat;
     public Color playerColor;
 
+    public AudioSource GoombaAudio;
+
+
     void Start()
     {
         thisEnemy.transform.position = waypoints[waypointIndex].transform.position;

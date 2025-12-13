@@ -56,9 +56,10 @@ public class PlayerMotor : MonoBehaviour
     public BFOSAnimator bfosAnim;
 
     bool isMovingGround = false;
-    AudioSource runMC;
+    public AudioSource runMC;
     public AudioClip slap;
     public AudioClip dashie;
+    
     #endregion
 
 

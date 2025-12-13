@@ -25,6 +25,7 @@ public class Meter : MonoBehaviour
     public AudioClip swing;
     public AudioSource swingReady;
     public static Meter meter;
+    public AudioSource hit;
 
     void Start()
     {
@@ -79,7 +80,9 @@ public class Meter : MonoBehaviour
     public void ActivateDamageSword()
     {
         damageSword.SetActive(true);
+        hit.Play(0);
         StartCoroutine(DamageSwordTimer());
+
     }
 
     private IEnumerator DamageSwordTimer()
