@@ -13,7 +13,9 @@ public class Trapper : MonoBehaviour
     public float settingTime;
     public float speed;
 
-
+    public AudioSource trapperWalk;
+    public AudioSource trapPlace;
+    bool trapper_ToggleChange;
 
     [SerializeField]
     public GameObject player;
@@ -22,12 +24,25 @@ public class Trapper : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");        // AM: Player.Instance
         StartCoroutine(Wander());
+        trapperWalk = GetComponent<AudioSource>();
+        trapPlace = GetComponent<AudioSource>();
+
     }
 
     IEnumerator Wander()
     {
         target = Random.Range(xBounds[0], xBounds[1]);
         moving = true;
+        if (moving == true && trapper_ToggleChange == true)
+        {
+            trapperWalk.Play();
+            trapper_ToggleChange = false;
+        }
+        if (moving == false && trapper_ToggleChange == true)
+        {
+            trapperWalk.Stop();
+            trapper_ToggleChange = false;
+        }
         yield return new WaitUntil(() => moving == false);
         yield return new WaitForSecondsRealtime(settingTime);
         StartCoroutine(Trap());
