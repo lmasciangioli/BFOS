@@ -75,23 +75,15 @@ public class Tweeter : MonoBehaviour
 
     IEnumerator Wander(float delay)
     {
-<<<<<<< HEAD
 
         yield return new WaitForSecondsRealtime(delay);
 
-=======
->>>>>>> origin/main
-
-        yield return new WaitForSecondsRealtime(delay);
 
         while (Time.timeScale == 0) 
         {
             yield return new WaitForFixedUpdate();
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/main
         StartCoroutine(Shoot());
     }
     IEnumerator Shoot()
