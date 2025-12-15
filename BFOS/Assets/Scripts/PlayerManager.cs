@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -8,9 +9,11 @@ public class PlayerManager : MonoBehaviour
     public PlayerMotor playerMotor;
     public Meter meter;
     public UIManager uiManager;
+    public Color playerColor;
+    public Material playerMat;
+    public Meter meterScript;
     void Start()
     {
-        meter = FindAnyObjectByType<Meter>();
         levels = FindAnyObjectByType<LevelManager>();       // AM: look into Singleton pattern if you need access to something there's only ever going to be one instance of.
         uiManager = FindAnyObjectByType<UIManager>();                                                    // eg. so you can just do LevelManager.Instance,  instead of searching for it.
     }
@@ -42,7 +45,10 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                ResetScene();
+                Debug.Log("collision");
+                playerMat.SetColor("_Color", Color.red);
+                Meter.meter.ChangeMeter(-25);
+                Meter.meter.ActivateDamageSword();
             }
         }
     }

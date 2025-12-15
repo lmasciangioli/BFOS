@@ -53,8 +53,8 @@ public class Goomba : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             playerMat.SetColor("_Color", Color.red);
-            meterScript.ChangeMeter(-25);
-            meterScript.ActivateDamageSword();
+            Meter.meter.ChangeMeter(-25);
+            Meter.meter.ActivateDamageSword();
         }
     }
 

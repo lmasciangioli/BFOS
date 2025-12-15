@@ -25,7 +25,6 @@ public class Projectile : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         tweeter = GameObject.FindAnyObjectByType<Tweeter>();
-        meterScript = FindAnyObjectByType<Meter>();
 
     }
 
@@ -58,40 +57,36 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
-        if(other.gameObject.CompareTag("Indicator") == true && other.transform.position != lazerList[tweeter.wayPointTracker - 1].position)
+        if (other.gameObject.tag == "Player")
+        {
+            Debug.Log("collision");
+            playerMat.SetColor("_Color", Color.red);
+            Meter.meter.ChangeMeter(-25);
+            Meter.meter.ActivateDamageSword();
+        }
+        if (other.gameObject.CompareTag("Indicator") == true && other.transform.position != lazerList[tweeter.wayPointTracker - 1].position)
         {
             if (tweeter.wayPointTracker != tweeter.targetWPs)
             {
                 tweeter.wayPointTracker++;
                 tweeter.canContinue = true;
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
-        }
-
-        if (other.gameObject.tag == "Player")
-        {
-            playerMat.SetColor("_Color", Color.red);
-            meterScript.ChangeMeter(-25);
-            meterScript.ActivateDamageSword();
+            
         }
     }
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player") == false && lazering == false)
-    //    {
-    //        playerMat.SetColor("_Color", Color.red);
-    //        Meter.meter.ChangeMeter(-25);
-    //        meterScript.ActivateDamageSword();
-    //    }
-    //}
+    void OnCollisionEnter(Collision collision)
+    { 
+        Destroy(gameObject);
+    }
 
     public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             playerMat.SetColor("_Color", playerColor);
-
+            
         }
     }
 

@@ -20,30 +20,33 @@ public class PlayerAnimator : MonoBehaviour
         {
             animator.SetBool("isWalking", motor.isWalking);
             playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 90, playerMesh.transform.eulerAngles.z);
+            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
         else if (motor.facing == PlayerMotor.Direction.Left && motor.isWalking && motor.isGrounded)
         {
             animator.SetBool("isWalking", motor.isWalking);
             playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, -90, playerMesh.transform.eulerAngles.z);
+            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
         else
         {
             animator.SetBool("isWalking", false);
+            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -1.08f, playerMesh.transform.localPosition.z);
         }
 
         // jumping
 
         if (Input.GetButtonDown("Jump") && motor.isGrounded)
         {
-            animator.SetBool("isJumpingUp", true);
+            animator.SetTrigger("trJumpingUp");
+            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
-        else if (!motor.isGrounded)
+
+        // dashing
+
+        if(Input.GetButtonDown("Dash") && !motor.isGrounded)
         {
-            animator.SetBool("isJumpingUp", true);
-        }
-        else
-        {
-            animator.SetBool("isJumpingUp", false);
+            animator.SetTrigger("trDash");
         }
     }
 }

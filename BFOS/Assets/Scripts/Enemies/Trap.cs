@@ -17,8 +17,6 @@ public class Trap : MonoBehaviour
     void Start()
     {
         position = gameObject.transform.position;
-
-        meterScript = FindAnyObjectByType<Meter>();
     }
 
     // Update is called once per frame
@@ -79,7 +77,7 @@ public class Trap : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             playerMat.SetColor("_Color", Color.red);
             Meter.meter.ChangeMeter(-25);
-            meterScript.ActivateDamageSword();
+            Meter.meter.ActivateDamageSword();
         }
 
         
