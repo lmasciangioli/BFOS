@@ -41,5 +41,12 @@ public class PlayerAnimator : MonoBehaviour
             animator.SetTrigger("trJumpingUp");
             playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
+
+        // dashing
+
+        if(Input.GetButtonDown("Dash") && !motor.isGrounded)
+        {
+            animator.SetTrigger("trDash");
+        }
     }
 }
