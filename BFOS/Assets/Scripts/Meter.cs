@@ -17,6 +17,7 @@ public class Meter : MonoBehaviour
     public GameObject player;
     public Vector3 playerPos;
     public Material playerMat;
+    public Color playerColor;
 
     public GameObject damageSword;
 
@@ -89,6 +90,8 @@ public class Meter : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         damageSword.SetActive(false);
+        playerMat.SetColor("_Color", playerColor);
+
     }
 
 

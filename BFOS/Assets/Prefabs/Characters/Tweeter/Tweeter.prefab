@@ -73,7 +73,7 @@ MonoBehaviour:
   tweeter: {fileID: 0}
   facing: 1
   facingOffset: 0
-  homing: 1
+  homing: 0
   projectileStartDelay: 3
   projectileInterval: 3
   tweetWayPoints: []
