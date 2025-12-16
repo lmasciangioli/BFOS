@@ -47,6 +47,29 @@ public class PlayerAnimator : MonoBehaviour
         if(Input.GetButtonDown("Dash") && !motor.isGrounded)
         {
             animator.SetTrigger("trDash");
+            if(motor.facing == PlayerMotor.Direction.Right)
+            {
+                playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 180, playerMesh.transform.eulerAngles.z);
+            } 
+            else if (motor.facing == PlayerMotor.Direction.Left)
+            {
+                playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 0, playerMesh.transform.eulerAngles.z);
+            }
+        }
+
+        // parry
+
+        if (motor.parrying)
+        {
+            animator.SetTrigger("trParry");
+            if(motor.facing == PlayerMotor.Direction.Right) 
+            {
+                playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 90, playerMesh.transform.eulerAngles.z);
+            } 
+            else if (motor.facing == PlayerMotor.Direction.Left)
+            {
+                playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, -90, playerMesh.transform.eulerAngles.z);
+            }
         }
     }
 }
