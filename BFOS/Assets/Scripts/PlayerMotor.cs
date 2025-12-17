@@ -216,7 +216,7 @@ public class PlayerMotor : MonoBehaviour
         }
         else if (parrying == true)
         {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
         }
         else
         {
@@ -429,8 +429,7 @@ public class PlayerMotor : MonoBehaviour
         playerMat.SetColor("_Color", Color.green);
         canParry = false;
         parrying = true;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-
+        rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePosition;
         for (int i = 12; i > 0; i--)
         {
             yield return new WaitForFixedUpdate();
