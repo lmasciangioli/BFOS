@@ -15,23 +15,30 @@ public class PlayerAnimator : MonoBehaviour
     void Update()
     {
         animator.SetBool("isGrounded", motor.isGrounded);
+        
+        if(!motor.isWalking && motor.isGrounded)
+        {
+            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -1.08f, playerMesh.transform.localPosition.z);
+        }
+        else
+        {
+            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
+        }
         // walking
+
         if (motor.facing == PlayerMotor.Direction.Right && motor.isWalking && motor.isGrounded)
         {
             animator.SetBool("isWalking", motor.isWalking);
             playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 90, playerMesh.transform.eulerAngles.z);
-            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
         else if (motor.facing == PlayerMotor.Direction.Left && motor.isWalking && motor.isGrounded)
         {
             animator.SetBool("isWalking", motor.isWalking);
             playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, -90, playerMesh.transform.eulerAngles.z);
-            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
         else
         {
             animator.SetBool("isWalking", false);
-            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -1.08f, playerMesh.transform.localPosition.z);
         }
 
         // jumping
@@ -39,21 +46,20 @@ public class PlayerAnimator : MonoBehaviour
         if (Input.GetButtonDown("Jump") && motor.isGrounded)
         {
             animator.SetTrigger("trJumpingUp");
-            playerMesh.transform.localPosition = new Vector3(playerMesh.transform.localPosition.x, -2.08f, playerMesh.transform.localPosition.z);
         }
 
         // dashing
 
         if(Input.GetButtonDown("Dash") && !motor.isGrounded)
         {
-            animator.SetTrigger("trDash");
-            if(motor.facing == PlayerMotor.Direction.Right)
+            playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 180, playerMesh.transform.eulerAngles.z);
+            if (motor.facing == PlayerMotor.Direction.Right)
             {
-                playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 180, playerMesh.transform.eulerAngles.z);
+                animator.SetTrigger("trDashRight");
             } 
             else if (motor.facing == PlayerMotor.Direction.Left)
             {
-                playerMesh.transform.eulerAngles = new Vector3(playerMesh.transform.eulerAngles.x, 0, playerMesh.transform.eulerAngles.z);
+                animator.SetTrigger("trDashLeft");
             }
         }
 

@@ -46,6 +46,7 @@ public class Trapper : MonoBehaviour
         yield return new WaitUntil(() => moving == false);
         yield return new WaitForSecondsRealtime(settingTime);
         StartCoroutine(Trap());
+        Debug.Log("set");
     }
     IEnumerator Trap()
     {

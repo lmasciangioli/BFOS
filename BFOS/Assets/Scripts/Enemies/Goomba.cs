@@ -26,8 +26,6 @@ public class Goomba : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
-
         if (waypointIndex <= waypoints.Length - 1)
         {
             thisEnemy.transform.position = Vector3.MoveTowards(thisEnemy.transform.position, waypoints[waypointIndex].transform.position, speed * Time.deltaTime);
