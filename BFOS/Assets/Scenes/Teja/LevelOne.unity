@@ -658,6 +658,10 @@ PrefabInstance:
       propertyPath: queuedScene
       value: level 1-3
       objectReference: {fileID: 0}
+    - target: {fileID: 8138186063160421525, guid: bd644ec30a07f7e4e9148235b5385b17, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
