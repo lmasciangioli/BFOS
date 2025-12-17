@@ -12,6 +12,8 @@ TagManager:
   - Trap
   - Indicator
   - Deathbox
+  - TrapArm
+  - Trap Arm
   layers:
   - Default
   - TransparentFX
