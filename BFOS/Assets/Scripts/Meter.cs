@@ -27,6 +27,8 @@ public class Meter : MonoBehaviour
     public AudioSource swingReady;
     public static Meter meter;
     public AudioSource hit;
+    public GameObject swordBurning;
+    public GameObject swordTipper;
 
     void Start()
     {
@@ -60,6 +62,8 @@ public class Meter : MonoBehaviour
         else
         {
             Debug.Log("Player's score for this level was: " + (1000 - score));
+            swordBurning.SetActive(true);
+            swordTipper.SetActive(true);
         }
         meterFg.GetComponent<Image>().fillAmount = meterPercent / 100;
     }
@@ -76,6 +80,12 @@ public class Meter : MonoBehaviour
         {
             meterPercent = 0;
         }
+
+        if(amount > 0 && meterPercent < 100)
+        {
+            StartCoroutine(swordFlash());
+        }
+
     }
 
     public void ActivateDamageSword()
@@ -84,7 +94,6 @@ public class Meter : MonoBehaviour
         CloseCalls.closeCalls.ActivateDelay();
         hit.Play(0);
         StartCoroutine(DamageSwordTimer());
-
     }
 
     private IEnumerator DamageSwordTimer()
@@ -95,7 +104,19 @@ public class Meter : MonoBehaviour
 
     }
 
+    
+    IEnumerator swordFlash()
+    {
+        swordBurning.SetActive(true);
+        float timer = 0.6f;
 
+        while (timer > 0)
+        {
+            yield return new WaitForFixedUpdate();
+            timer -= 0.02f;
+        }
+        swordBurning.SetActive(false);
+    }
 
 
 }

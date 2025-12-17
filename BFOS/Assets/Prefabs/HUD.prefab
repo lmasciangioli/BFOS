@@ -22080,6 +22080,8 @@ MonoBehaviour:
   swing: {fileID: 0}
   swingReady: {fileID: 0}
   hit: {fileID: 2173710021172278115}
+  swordBurning: {fileID: 6483770610676780540}
+  swordTipper: {fileID: 4250904959886319447}
 --- !u!82 &2173710021172278115
 AudioSource:
   m_ObjectHideFlags: 0
