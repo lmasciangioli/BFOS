@@ -12,8 +12,15 @@ public class CloseCalls : MonoBehaviour
     public Meter meter;
     public GameObject nearMissIndicator;
     public UIManager uIManager;
+    public bool canNearMiss = true;
 
     public AudioClip gain;
+    public static CloseCalls closeCalls;
+
+    private void Awake()
+    {
+        closeCalls = this;
+    }
 
     void Start()
     {
@@ -54,7 +61,7 @@ public class CloseCalls : MonoBehaviour
                 isIn = true;
             }
         }
-        if(isIn == false)
+        if(isIn == false && canNearMiss)
         {
             //NEAR MISS CODE HERE
             NearMissIndicator();
@@ -76,7 +83,6 @@ public class CloseCalls : MonoBehaviour
             while(timer > 0)
             {
                 yield return new WaitForFixedUpdate();
-                Debug.Log("Waiting...");
                 timer -= 0.02f;
             }
             log.Remove(hit);
@@ -91,5 +97,24 @@ public class CloseCalls : MonoBehaviour
         nearMissIndicator.transform.SetParent(null);
         nearMissIndicator.transform.position = playerTrans.position; 
         nearMissIndicator.GetComponent<ParticleSystem>().Play();
+    }
+
+
+    public void ActivateDelay()
+    {
+        StartCoroutine(Delay());
+    }
+
+    public IEnumerator Delay()
+    {
+        canNearMiss = false;
+        float timer = 1;
+
+        while (timer > 0)
+        {
+            yield return new WaitForFixedUpdate();
+            timer -= 0.02f;
+        }
+        canNearMiss = true;
     }
 }

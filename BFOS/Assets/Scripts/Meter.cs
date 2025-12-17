@@ -81,6 +81,7 @@ public class Meter : MonoBehaviour
     public void ActivateDamageSword()
     {
         damageSword.SetActive(true);
+        CloseCalls.closeCalls.ActivateDelay();
         hit.Play(0);
         StartCoroutine(DamageSwordTimer());
 

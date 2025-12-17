@@ -497,6 +497,7 @@ MonoBehaviour:
   meter: {fileID: 0}
   nearMissIndicator: {fileID: 1495054387375324412}
   uIManager: {fileID: 0}
+  canNearMiss: 1
   gain: {fileID: 8300000, guid: b64c626ea130e4a409cb1cb289ad7564, type: 3}
 --- !u!1 &6137377327868002071
 GameObject:
