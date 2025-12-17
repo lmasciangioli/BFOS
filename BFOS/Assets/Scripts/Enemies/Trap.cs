@@ -13,6 +13,7 @@ public class Trap : MonoBehaviour
 
     public Material playerMat;
     public Color playerColor;
+   
 
     void Start()
     {
