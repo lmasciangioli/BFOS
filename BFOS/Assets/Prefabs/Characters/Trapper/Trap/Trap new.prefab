@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4079160099814782532}
+  - component: {fileID: 8390971662409322637}
+  - component: {fileID: 1878931684627851215}
   m_Layer: 0
   m_Name: Trap new
   m_TagString: Untagged
@@ -32,6 +34,46 @@ Transform:
   - {fileID: 1401936725428121230}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8390971662409322637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588774330626819134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73376fcc5e208b84782ba7589cd06e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggered: 0
+  playIn: 0
+  live: 0
+  position: {x: 0, y: 0, z: 0}
+  playerMat: {fileID: 2100000, guid: 9bbe9f415bac374449cbfcb8fdc76a23, type: 2}
+  playerColor: {r: 1, g: 1, b: 1, a: 0}
+  armScript: {fileID: 4688214090085663009}
+--- !u!65 &1878931684627851215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588774330626819134}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 18, y: 7, z: 6.92}
+  m_Center: {x: 0.84, y: 3.58, z: -0.66}
 --- !u!1001 &7267591953114486903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,13 +150,60 @@ PrefabInstance:
       propertyPath: m_Name
       value: mouse trap
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 926513610026300756, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
+    - {fileID: 4485223840857763131, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3201077220860642515, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4688214090085663009}
+    - targetCorrespondingSourceObject: {fileID: 3201077220860642515, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7339671210515702057}
   m_SourcePrefab: {fileID: 100100000, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
 --- !u!4 &1401936725428121230 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8624114450247972601, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
   m_PrefabInstance: {fileID: 7267591953114486903}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5239707981802511524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3201077220860642515, guid: 5d35fb17e2be9c040a99b6e515b78709, type: 3}
+  m_PrefabInstance: {fileID: 7267591953114486903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4688214090085663009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239707981802511524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116a82d25b23f1e4bbf1d0d1b3805922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapArmAnim: {fileID: 7339671210515702057}
+--- !u!95 &7339671210515702057
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239707981802511524}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1538038ddd61df143be486ed8676f207, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -13,7 +13,8 @@ public class Trap : MonoBehaviour
 
     public Material playerMat;
     public Color playerColor;
-   
+
+    public Arm armScript;
 
     void Start()
     {
@@ -60,10 +61,13 @@ public class Trap : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
         live = true;
         triggered = false;
-        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, 6, gameObject.transform.localScale.z);
-        gameObject.transform.position = position + new Vector3(0, 2.75f, 0);
+
+        //gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, 6, gameObject.transform.localScale.z);
+        //gameObject.transform.position = position + new Vector3(0, 2.75f, 0);
+
+        armScript.playAnimation();
         BoxCollider box = gameObject.GetComponent<BoxCollider>();
-        box.size = new Vector3(1, 1, 1);
+        box.size = new Vector3(14.1f, 7, 6.92f);
         box.center = new Vector3(0,0,0);
 
         playIn = false;
